@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 using UnityEngine;
-using KSP;
-using KSPPluginFramework;
-
-using System.Xml.Serialization;
 
 namespace KerbalAlarmClock
 {

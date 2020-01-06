@@ -4,11 +4,6 @@
 /// This Module is a compilation of the required functions to generate the AN/DN alarms - basically my maths is not up to scratch
 ///
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using KSP;
 
 namespace KerbalAlarmClock
 {

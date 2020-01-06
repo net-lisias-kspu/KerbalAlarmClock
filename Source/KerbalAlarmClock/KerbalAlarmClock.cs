@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
 using System.Linq;
 
 using UnityEngine;
-using KSP;
 using KSPPluginFramework;
 using Contracts;
 
