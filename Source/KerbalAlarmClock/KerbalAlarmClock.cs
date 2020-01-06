@@ -195,8 +195,11 @@ namespace KerbalAlarmClock
             GameEvents.onShowUI.Add(OnShowUI);
             GameEvents.onHideUI.Add(OnHideUI);
 
+#if KSP_15
             GameEvents.onUIScaleChange.Add(OnUIScaleChange);
-            if (settings.UIScaleOverride)
+#endif
+
+			if (settings.UIScaleOverride)
             {
                 guiScale = new Vector2(settings.UIScaleValue, settings.UIScaleValue);
             }
@@ -310,9 +313,11 @@ namespace KerbalAlarmClock
             GameEvents.onShowUI.Remove(OnShowUI);
             GameEvents.onHideUI.Remove(OnHideUI);
 
+#if KSP_15
             GameEvents.onUIScaleChange.Remove(OnUIScaleChange);
+#endif
 
-            Destroy(PhaseAngle);
+			Destroy(PhaseAngle);
 			Destroy(EjectAngle);
 
 			DestroyDropDowns();

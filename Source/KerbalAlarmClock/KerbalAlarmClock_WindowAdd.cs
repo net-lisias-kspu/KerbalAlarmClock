@@ -282,7 +282,11 @@ namespace KerbalAlarmClock
                 strAlarmName = "Crew member alarm";
                 strAlarmNotes = "No Kerbals present in this vessel";
             } else {
+#if KSP_16
                 strAlarmName = pCM[intSelectedCrew].displayName;
+#else
+                strAlarmName = pCM[intSelectedCrew].name;
+#endif
                 strAlarmNotes = string.Format("Alarm for {0}\r\nNot tied to any vessel - will follow the Kerbal", pCM[intSelectedCrew].name);
             }
         }
