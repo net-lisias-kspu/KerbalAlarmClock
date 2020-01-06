@@ -24,7 +24,7 @@ namespace KerbalAlarmClock
                 foreach (String item in AlarmFiles)
                 {
                     System.IO.FileInfo File = new System.IO.FileInfo(item);
-                    MonoBehaviourExtended.LogFormatted_DebugOnly("File:{0}", File.Name);
+                    Log.dbg("File:{0}", File.Name);
 
                     if (File.Name == String.Format("Alarms-{0}.txt", HighLogic.CurrentGame.Title))
                     {
@@ -35,7 +35,7 @@ namespace KerbalAlarmClock
                 if (FileToLoad != "")
                 {
                     //parse it to a new list
-                    MonoBehaviourExtended.LogFormatted("Loading {0}", FileToLoad);
+                    Log.dbg("Loading {0}", FileToLoad);
                     String strFile = System.IO.File.ReadAllText(FileToLoad);
 
                     String AlarmsFileVersion = "";
@@ -48,7 +48,7 @@ namespace KerbalAlarmClock
                         if (strAlarm.StartsWith("AlarmsFileVersion|"))
                         {
                             AlarmsFileVersion = strAlarm.Split("|".ToCharArray())[1];
-                            MonoBehaviourExtended.LogFormatted("AlarmsFileVersion:{0}", AlarmsFileVersion);
+                            Log.dbg("AlarmsFileVersion:{0}", AlarmsFileVersion);
                         }
                         else if (!strAlarm.StartsWith("VesselID|"))
                         {
@@ -57,11 +57,11 @@ namespace KerbalAlarmClock
                             switch (AlarmsFileVersion)
                             {
                                 case "3":
-                                    MonoBehaviourExtended.LogFormatted_DebugOnly("Loading Alarm via v3 loader");
+                                    Log.dbg("Loading Alarm via v3 loader");
                                     tmpAlarm = UtilitiesLegacy.LoadFromString3(strAlarm, KACWorkerGameState.CurrentTime.UT);
                                     break;
                                 default:
-                                    MonoBehaviourExtended.LogFormatted_DebugOnly("Loading Alarm via v2 loader");
+                                    Log.dbg("Loading Alarm via v2 loader");
                                     tmpAlarm = UtilitiesLegacy.LoadFromString2(strAlarm);
                                     break;
                             }
@@ -74,14 +74,14 @@ namespace KerbalAlarmClock
                 }
                 else
                 {
-                    MonoBehaviourExtended.LogFormatted("Could not find alarms file for: {0}", HighLogic.CurrentGame.Title);
+                    Log.dbg("Could not find alarms file for: {0}", HighLogic.CurrentGame.Title);
                     LoadMessage = "File not found in TriggerTech Folder";
                 }
 
             }
             catch (Exception ex)
             {
-                MonoBehaviourExtended.LogFormatted("Error occured:{0}\r\n{1}", ex.Message,ex.StackTrace);
+                Log.dbg("Error occured:{0}\r\n{1}", ex.Message,ex.StackTrace);
                 LoadMessage = "Unknown error occured trying to load old file\r\n\r\nError details in output_log.txt";
             }
             return blnReturn;
@@ -159,8 +159,8 @@ namespace KerbalAlarmClock
                     }
                     catch (Exception ex)
                     {
-                        MonoBehaviourExtended.LogFormatted("Unable to load transfer details for {0}", Name);
-                        MonoBehaviourExtended.LogFormatted(ex.Message);
+                        Log.dbg("Unable to load transfer details for {0}", Name);
+                        Log.dbg(ex.Message);
                     }
                     break;
                 case KACAlarm.AlarmTypeEnum.AscendingNode:
@@ -209,9 +209,9 @@ namespace KerbalAlarmClock
 
             String[] vars = AlarmDetails.Split("|".ToCharArray(), StringSplitOptions.None);
 
-            MonoBehaviourExtended.LogFormatted("AlarmExtract");
+            Log.dbg("AlarmExtract");
             for (int i = 0; i < vars.Length; i++) {
-			    MonoBehaviourExtended.LogFormatted("{0}:{1}",i,vars[i]);
+			    Log.dbg("{0}:{1}",i,vars[i]);
 			}
 
             //String SaveName = HighLogic.CurrentGame.Title;    //Commented because usage removed
@@ -240,15 +240,15 @@ namespace KerbalAlarmClock
             {
                 try
                 {
-                    MonoBehaviourExtended.LogFormatted("{0}", vars[11]);
+                    Log.dbg("{0}", vars[11]);
                     String[] XferParts = vars[11].Split(",".ToCharArray());
                     XferOriginBodyName = XferParts[0];
                     XferTargetBodyName = XferParts[1];
                 }
                 catch (Exception ex)
                 {
-                    MonoBehaviourExtended.LogFormatted("Unable to load transfer details for {0}", Name);
-                    MonoBehaviourExtended.LogFormatted(ex.Message);
+                    Log.dbg("Unable to load transfer details for {0}", Name);
+                    Log.dbg(ex.Message);
                 }
             }
             if (vars[12] != "")
@@ -263,14 +263,14 @@ namespace KerbalAlarmClock
             //LogFormatted("A:{0},T:{1:0},Act:{2:0}", this.Name, CurrentUT, this.ActionedAt);
             if (ActionedAt > 0 && CurrentUT > ActionedAt)
             {
-                MonoBehaviourExtended.LogFormatted("Suppressing Alarm on Load:{0}", Name);
+                Log.dbg("Suppressing Alarm on Load:{0}", Name);
                 Triggered = true;
                 Actioned = true;
                 AlarmWindowClosed = true;
             }
             else if (ActionedAt > CurrentUT)
             {
-                MonoBehaviourExtended.LogFormatted("Reenabling Alarm on Load:{0}", Name);
+                Log.dbg("Reenabling Alarm on Load:{0}", Name);
                 Triggered = false;
                 Actioned = false;
                 ActionedAt = 0;
@@ -330,7 +330,7 @@ namespace KerbalAlarmClock
             List<ManeuverNode> lstReturn = new List<ManeuverNode>();
 
             String[] strInputParts = strInput.Split(",".ToCharArray());
-            MonoBehaviourExtended.LogFormatted("Found {0} Maneuver Nodes to deserialize", strInputParts.Length / 8);
+            Log.dbg("Found {0} Maneuver Nodes to deserialize", strInputParts.Length / 8);
 
             //There are 8 parts per mannode
             for (int iNode = 0; iNode < strInputParts.Length / 8; iNode++)

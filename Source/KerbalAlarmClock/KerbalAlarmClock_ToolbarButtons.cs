@@ -17,7 +17,7 @@ namespace KerbalAlarmClock
         {
             //Is the Dll in memory
             Boolean blnReturn = ToolbarManager.ToolbarAvailable;
-            LogFormatted("Blizzy's Toolbar Loaded:{0}", blnReturn);
+            Log.detail("Blizzy's Toolbar Loaded:{0}", blnReturn);
             return blnReturn;
         }
 
@@ -31,7 +31,7 @@ namespace KerbalAlarmClock
             IButton btnReturn = null;
             try
             {
-                LogFormatted("Initialising the Toolbar Icon");
+                Log.detail("Initialising the Toolbar Icon");
                 btnReturn = ToolbarManager.Instance.add("KerbalAlarmClock", "btnToolbarIcon");
                 btnReturn.TexturePath = KACUtils.PathToolbarTexturePath + "/KACIcon-Norm";
                 btnReturn.ToolTip = "Kerbal Alarm Clock";
@@ -44,7 +44,7 @@ namespace KerbalAlarmClock
             catch (Exception ex)
             {
                 DestroyToolbarButton(btnReturn);
-                LogFormatted("Error Initialising Toolbar Button: {0}", ex.Message);
+                Log.error(ex, "Error Initialising Toolbar Button");
             }
             return btnReturn;
         }
@@ -57,7 +57,7 @@ namespace KerbalAlarmClock
         {
             if (btnToDestroy != null)
             {
-                LogFormatted("Destroying Toolbar Button");
+                Log.detail("Destroying Toolbar Button");
                 btnToDestroy.Destroy();
             }
             btnToDestroy = null;

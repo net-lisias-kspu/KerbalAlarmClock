@@ -15,13 +15,12 @@ namespace KerbalAlarmClock
             KerbalAlarmClock.alarms.RemoveRange(0,KerbalAlarmClock.alarms.Count);
 
             base.OnLoad(gameNode);
-            MonoBehaviourExtended.LogFormatted("BaseLoadDone. Alarms Count (Should be 0):{0}", KerbalAlarmClock.alarms.Count);
+			Log.info("BaseLoadDone. Alarms Count (Should be 0):{0}", KerbalAlarmClock.alarms.Count);
 
-            MonoBehaviourExtended.LogFormatted_DebugOnly("OnLoad: ");
-            MonoBehaviourExtended.LogFormatted_DebugOnly("{0}",gameNode);
+            Log.dbg("OnLoad: {0}", gameNode);
 
-            if (gameNode.HasNode("KerbalAlarmClockScenario")) MonoBehaviourExtended.LogFormatted_DebugOnly("Found {0}","KerbalAlarmClockScenario");
-            if (gameNode.HasNode("KACAlarmListStorage")) MonoBehaviourExtended.LogFormatted_DebugOnly("Found {0}", "KACAlarmListStorage");
+            if (gameNode.HasNode("KerbalAlarmClockScenario")) Log.dbg("Found {0}","KerbalAlarmClockScenario");
+            if (gameNode.HasNode("KACAlarmListStorage")) Log.dbg("Found {0}", "KACAlarmListStorage");
             if(gameNode.HasNode("KACAlarmListStorage"))
             {
                 KerbalAlarmClock.alarms.DecodeFromCN(gameNode.GetNode("KACAlarmListStorage"));
@@ -36,8 +35,8 @@ namespace KerbalAlarmClock
                 }
             }
 
-            MonoBehaviourExtended.LogFormatted("ScenarioLoadDone. Alarms Count:{0}", KerbalAlarmClock.alarms.Count);
-            //{MonoBehaviourExtended.LogFormatted_DebugOnly("A");} else {MonoBehaviourExtended.LogFormatted_DebugOnly("B");}
+            Log.detail("ScenarioLoadDone. Alarms Count:{0}", KerbalAlarmClock.alarms.Count);
+            //{Log.dbg("A");} else {Log.dbg("B");}
             //KerbalAlarmClock.alarms.DecodeFromCN(gameNode.GetNode(this.GetType().Name));
         }
 
@@ -52,8 +51,7 @@ namespace KerbalAlarmClock
                 a.Actions.Message = AlarmActions.MessageEnum.Yes;
             }
 
-            MonoBehaviourExtended.LogFormatted_DebugOnly("OnSave: ");
-            MonoBehaviourExtended.LogFormatted_DebugOnly("{0}", gameNode);
+            Log.info("OnSave: {0}", gameNode);
             gameNode.AddNode(KerbalAlarmClock.alarms.EncodeToCN());
         }
     }

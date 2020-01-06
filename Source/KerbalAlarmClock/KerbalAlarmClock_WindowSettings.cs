@@ -900,9 +900,9 @@ namespace KerbalAlarmClock
                         settings.EarthEpoch = KSPDateStructure.CustomEpochEarth.ToString("yyyy-MM-dd");
                         settings.Save();
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        LogFormatted("Unable to set the Epoch date using the values provided-{0}-{1}-{2}", strYear, strMonth, strDay);
+                        Log.error(e, "Unable to set the Epoch date using the values provided-{0}-{1}-{2}", strYear, strMonth, strDay);
                     }
                 }
 

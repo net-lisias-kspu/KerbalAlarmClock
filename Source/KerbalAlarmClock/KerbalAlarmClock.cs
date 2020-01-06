@@ -104,7 +104,7 @@ namespace KerbalAlarmClock
 		//Awake Event - when the DLL is loaded
 		internal override void OnAwake()
 		{
-			LogFormatted("Awakening the KerbalAlarmClock-{0}", MonoName);
+			Log.detail("Awakening the KerbalAlarmClock-{0}", MonoName);
 
 			InitVariables();
 
@@ -113,7 +113,7 @@ namespace KerbalAlarmClock
 
 			//Load the Settings values from the file
 			//Settings.Load();
-			LogFormatted("Loading Settings");
+			Log.detail("Loading Settings");
 			settings = new Settings("PluginData/settings.cfg");
 			Boolean blnSettingsLoaded = settings.Load();
 			if (!blnSettingsLoaded) {
@@ -127,7 +127,7 @@ namespace KerbalAlarmClock
 
 			if (!blnSettingsLoaded) {
 				settings.FilePath = "PluginData/settings.cfg";
-				LogFormatted("Settings Load Failed");
+				Log.warn("Settings Load Failed");
 			} else {
 				if (!settings.TimeFormatConverted)
 				{
@@ -243,10 +243,10 @@ namespace KerbalAlarmClock
 
 		internal override void Start()
 		{
-			LogFormatted_DebugOnly("Start function");
-			LogFormatted_DebugOnly("Alarms Length:{0}", alarms.Count);
+			Log.dbg("Start function");
+			Log.dbg("Alarms Length:{0}", alarms.Count);
 			
-			LogFormatted("Searching for RSS");
+			Log.detail("Searching for RSS");
 			AssemblyLoader.loadedAssemblies.TypeOperation(t =>
 				{
 					if (t.FullName == ("RealSolarSystem.RSSWatchDog"))
@@ -261,19 +261,19 @@ namespace KerbalAlarmClock
 				});
 
 			//Init the KER Integration
-			LogFormatted("Searching for KER");
+			Log.detail("Searching for KER");
 			KERWrapper.InitKERWrapper();
 			if (KERWrapper.APIReady)
 			{
-				LogFormatted("Successfully Hooked KER");
+				Log.detail("Successfully Hooked KER");
 
 			}
 			//Init the VOID Integration
-			LogFormatted("Searching for VOID");
+			Log.detail("Searching for VOID");
 			VOIDWrapper.InitVOIDWrapper();
 			if (VOIDWrapper.APIReady)
 			{
-				LogFormatted("Successfully Hooked VOID");
+				Log.detail("Successfully Hooked VOID");
 
 			}
 
@@ -289,7 +289,7 @@ namespace KerbalAlarmClock
 		//Destroy Event - when the DLL is loaded
 		internal override void OnDestroy()
 		{
-			LogFormatted("Destroying the KerbalAlarmClock-{0}", MonoName);
+			Log.detail("Destroying the KerbalAlarmClock-{0}", MonoName);
 
 			//Hook the App Launcher
 			GameEvents.onGUIApplicationLauncherReady.Remove(OnGUIAppLauncherReady);
@@ -329,7 +329,7 @@ namespace KerbalAlarmClock
 		Boolean blnContractsSystemReady = false;
 		void ContractsReady()
 		{
-			LogFormatted("Contracts System Ready");
+			Log.detail("Contracts System Ready");
 			//update the list
 			UpdateContractDetails();
 
@@ -348,7 +348,7 @@ namespace KerbalAlarmClock
 			KACWorkerGameState.SetCurrentGUIStates();
 			//if scene has changed
 			if (KACWorkerGameState.ChangedGUIScene)
-				LogFormatted("Scene Change from '{0}' to '{1}'", KACWorkerGameState.LastGUIScene.ToString(), KACWorkerGameState.CurrentGUIScene.ToString());
+				Log.detail("Scene Change from '{0}' to '{1}'", KACWorkerGameState.LastGUIScene.ToString(), KACWorkerGameState.CurrentGUIScene.ToString());
 
 			HandleKeyStrokes();
 
@@ -424,14 +424,14 @@ namespace KerbalAlarmClock
 		{
 			if ((LastGameUT != 0) && (LastGameUT > Planetarium.GetUniversalTime()))
 			{
-				LogFormatted("Time Went Backwards - Load or restart - resetting inqueue flag");
+				Log.warn("Time Went Backwards - Load or restart - resetting inqueue flag");
 				ShouldBeInPostDrawQueue = false;
 //                IsInPostDrawQueue = false;
 
 				//Also, untrigger any alarms that we have now gone back past
 				foreach (KACAlarm tmpAlarm in alarms.Where(a=>a.Triggered && (a.AlarmTime.UT>Planetarium.GetUniversalTime())))
 				{
-					LogFormatted("Resetting Alarm Trigger for {0}({1})", tmpAlarm.Name, tmpAlarm.AlarmTime.ToStringStandard(DateStringFormatsEnum.TimeAsUT));
+					Log.info("Resetting Alarm Trigger for {0}({1})", tmpAlarm.Name, tmpAlarm.AlarmTime.ToStringStandard(DateStringFormatsEnum.TimeAsUT));
 					tmpAlarm.Triggered = false;
 					tmpAlarm.AlarmWindowID = 0;
 					tmpAlarm.AlarmWindowClosed = false;
@@ -441,13 +441,13 @@ namespace KerbalAlarmClock
 			}
 			else if (LastGameVessel == null)
 			{
-				LogFormatted("Active Vessel unreadable - resetting inqueue flag");
+				Log.warn("Active Vessel unreadable - resetting inqueue flag");
 				ShouldBeInPostDrawQueue = false;
 				//                IsInPostDrawQueue = false;
 			}
 			else if (LastGameVessel != FlightGlobals.ActiveVessel)
 			{
-				LogFormatted("Active Vessel changed - resetting inqueue flag");
+				Log.info("Active Vessel changed - resetting inqueue flag");
 				ShouldBeInPostDrawQueue = false;
 				//                IsInPostDrawQueue = false;
 			}
@@ -456,12 +456,12 @@ namespace KerbalAlarmClock
 
         private void OnShowUI()
         {
-            LogFormatted_DebugOnly("OnShowUI");
+            Log.dbg("OnShowUI");
             GUIVisible = true;
         }
         private void OnHideUI()
         {
-            LogFormatted_DebugOnly("OnHideUI");
+            Log.dbg("OnHideUI");
             GUIVisible = false;
         }
 
@@ -477,7 +477,7 @@ namespace KerbalAlarmClock
 			{
 				if (ShouldBeInPostDrawQueue && !IsInPostDrawQueue)
 				{
-					LogFormatted("Adding DrawGUI to PostRender Queue");
+					Log.detail("Adding DrawGUI to PostRender Queue");
 
 					//reset any existing pane display
 					ResetPanes();
@@ -491,7 +491,7 @@ namespace KerbalAlarmClock
 				}
 				else
 				{
-					LogFormatted("Removing DrawGUI from PostRender Queue");
+					Log.detail("Removing DrawGUI from PostRender Queue");
 					IsInPostDrawQueue = false;
 				}
 			}
@@ -719,7 +719,7 @@ namespace KerbalAlarmClock
 					VectMouseflipped.y = Screen.height - VectMouseflipped.y;
 					if (!WarpToArmedButtonRect.Contains(VectMouseflipped)){
 						WarpToArmed = false;
-						LogFormatted_DebugOnly("Mouse position has Left WarpTo Button Rect");
+						Log.dbg("Mouse position has Left WarpTo Button Rect");
 					}
 				}
 			}
@@ -820,7 +820,7 @@ namespace KerbalAlarmClock
 					{
 						if (settings.WarpToRequiresConfirm && !WarpToArmed)
 						{
-							LogFormatted_DebugOnly("Set confirmed and store Rect");
+							Log.dbg("Set confirmed and store Rect");
 							WarpToArmed = true;
 							WarpToArmedButtonRect = new Rect(rectNodeButton);
 							//If in the TS then reset the orbit selection
@@ -1083,7 +1083,7 @@ namespace KerbalAlarmClock
 				{
 					String strVesselName = "No Vessel";
 					if (KACWorkerGameState.LastVessel!=null) strVesselName = KSP.Localization.Localizer.Format(KACWorkerGameState.LastVessel.vesselName);
-					LogFormatted("Vessel Change from '{0}' to '{1}'", strVesselName, KSP.Localization.Localizer.Format(KACWorkerGameState.CurrentVessel.vesselName));
+					Log.info("Vessel Change from '{0}' to '{1}'", strVesselName, KSP.Localization.Localizer.Format(KACWorkerGameState.CurrentVessel.vesselName));
 				}
 
                 // Do we need to clear any highlighted science labs?
@@ -1106,7 +1106,7 @@ namespace KerbalAlarmClock
 				{
 					List<ManeuverNode> manNodesToRestore = KACAlarm.ManNodeDeserializeList(settings.LoadManNode);
 					manToRestoreAttempts += 1;
-					LogFormatted("Attempting to restore a maneuver node-Try {0}-{1}", manToRestoreAttempts.ToString(), manNodesToRestore.Count);
+					Log.detail("Attempting to restore a maneuver node-Try {0}-{1}", manToRestoreAttempts.ToString(), manNodesToRestore.Count);
 					FlightGlobals.ActiveVessel.patchedConicSolver.maneuverNodes.Clear();
 					RestoreManeuverNodeList(manNodesToRestore);
 					if (KACWorkerGameState.ManeuverNodeExists)
@@ -1118,7 +1118,7 @@ namespace KerbalAlarmClock
 					}
 					if (manToRestoreAttempts > (5 / KerbalAlarmClock.UpdateInterval))
 					{
-						LogFormatted("attempts adding Node failed over 5 secs - giving up");
+						Log.warn("attempts adding Node failed over 5 secs - giving up");
 						settings.LoadManNode = null;
 						settings.Save();
 						manNodesToRestore = null;
@@ -1131,7 +1131,7 @@ namespace KerbalAlarmClock
 				{
 					ITargetable targetToRestore = KACAlarm.TargetDeserialize(settings.LoadVesselTarget);
 					targetToRestoreAttempts += 1;
-					LogFormatted("Attempting to restore a Target-Try {0}", targetToRestoreAttempts.ToString());
+					Log.detail("Attempting to restore a Target-Try {0}", targetToRestoreAttempts.ToString());
 
 					if (targetToRestore is Vessel)
 						FlightGlobals.fetch.SetVesselTarget(targetToRestore as Vessel);
@@ -1147,7 +1147,7 @@ namespace KerbalAlarmClock
 					}
 					if (targetToRestoreAttempts > (5 / KerbalAlarmClock.UpdateInterval))
 					{
-						LogFormatted("attempts adding target over 5 secs failed - giving up");
+						Log.warn("attempts adding target over 5 secs failed - giving up");
 						settings.LoadVesselTarget = "";
 						settings.Save();
 						targetToRestore = null;
@@ -1226,7 +1226,7 @@ namespace KerbalAlarmClock
 			//Was it moved and has been stationary for the last second
 			if (WindowPosLastInited && !WindowPosSaved && (DateTime.Now - WindowPosMoveDetectedAt).TotalSeconds > 1)
 			{
-				LogFormatted("Saving Moved Window");
+				Log.detail("Saving Moved Window");
 				settings.Save();
 				WindowPosSaved = true;
 			}
@@ -1573,7 +1573,7 @@ namespace KerbalAlarmClock
 				{
 					if (!lstContracts.Any(c => c.ContractGuid == tmpAlarm.ContractGUID))
 					{
-						LogFormatted("Found an Expired Contract Alarm to Delete:{0}", tmpAlarm.Name);
+						Log.info("Found an Expired Contract Alarm to Delete:{0}", tmpAlarm.Name);
 						ToDelete.Add(tmpAlarm);
 					}
 				}
@@ -1591,7 +1591,7 @@ namespace KerbalAlarmClock
 				{
 					if (!lstContracts.Any(c => c.ContractGuid == tmpAlarm.ContractGUID))
 					{
-						LogFormatted("Found a Completed/Failed Contract Alarm to Delete:{0}", tmpAlarm.Name);
+						Log.info("Found a Completed/Failed Contract Alarm to Delete:{0}", tmpAlarm.Name);
 						ToDelete.Add(tmpAlarm);
 					}
 				}
@@ -1650,8 +1650,7 @@ namespace KerbalAlarmClock
 			if (alarms.Any(a => a.ContractGUID == contract.ContractGuid))
 				return;
 
-			//log
-			LogFormatted("Adding new {3} Contract Alarm for: {0}({1})-{2}", contract.Title, contract.ContractGuid, contract.DateExpire, contract.ContractState);
+			Log.info("Adding new {3} Contract Alarm for: {0}({1})-{2}", contract.Title, contract.ContractGuid, contract.DateExpire, contract.ContractState);
 
 			//gen the text
 			String AlarmName, AlarmNotes;
@@ -1728,7 +1727,7 @@ namespace KerbalAlarmClock
 					//else
 					//{
 
-						LogFormatted("Triggering Alarm - " + tmpAlarm.Name);
+						Log.info("Triggering Alarm - " + tmpAlarm.Name);
 						tmpAlarm.Triggered = true;
 
 
@@ -1738,7 +1737,7 @@ namespace KerbalAlarmClock
 						try {
 							APIInstance_AlarmStateChanged(tmpAlarm, AlarmStateEventsEnum.Triggered);
 						} catch (Exception ex) {
-							LogFormatted("Error Raising API Event-Triggered Alarm: {0}\r\n{1}", ex.Message, ex.StackTrace);
+							Log.error(ex, "Error Raising API Event-Triggered Alarm:");
 						} 
 
 						//If we are simply past the time make sure we halt the warp
@@ -1746,8 +1745,8 @@ namespace KerbalAlarmClock
 						//if (!ViewAlarmsOnly)
 						//{
 							if (tmpAlarm.PauseGame)
-							{
-								LogFormatted(String.Format("{0}-Pausing Game", tmpAlarm.Name));
+							{   
+						        Log.dbg(String.Format("{0}-Pausing Game", tmpAlarm.Name));
 								if (tmpAlarm.Actions.Message != AlarmActions.MessageEnum.Yes)
 									tmpAlarm.Actions.Message = AlarmActions.MessageEnum.Yes;
 
@@ -1760,14 +1759,14 @@ namespace KerbalAlarmClock
 							{
 								if (!FlightDriver.Pause)
 								{
-									LogFormatted(String.Format("{0}-Halt Warp", tmpAlarm.Name));
+									Log.info("{0}-Halt Warp", tmpAlarm.Name);
                                     //Make sure we cancle autowarp if its engaged
                                     TimeWarp.fetch.CancelAutoWarp();
                                     TimeWarp.SetRate(0, true);
 								}
 								else
 								{
-									LogFormatted(String.Format("{0}-Game paused, skipping Halt Warp", tmpAlarm.Name));
+									Log.info("{0}-Game paused, skipping Halt Warp", tmpAlarm.Name);
 								}
 							}
 						//}
@@ -1794,7 +1793,7 @@ namespace KerbalAlarmClock
 								TimeWarp w = TimeWarp.fetch;
 								if (w.current_rate_index > 0)
 								{
-									LogFormatted("Reducing Warp");
+									Log.info("Reducing Warp");
                                     //Make sure we cancel autowarp if its engaged
                                     TimeWarp.fetch.CancelAutoWarp();
                                     TimeWarp.SetRate(w.current_rate_index - 1, true);
@@ -1812,14 +1811,14 @@ namespace KerbalAlarmClock
 								TimeWarp w = TimeWarp.fetch;
 								if (w.current_rate_index > 0 && WarpTransitionCalculator.UTToRateTimesOne > (tmpAlarm.AlarmTime.UT - KACWorkerGameState.CurrentTime.UT))
 								{
-									LogFormatted("Reducing Warp-Transition Instant");
+									Log.info("Reducing Warp-Transition Instant");
                                     //Make sure we cancel autowarp if its engaged
                                     TimeWarp.fetch.CancelAutoWarp();
                                     TimeWarp.SetRate(w.current_rate_index - 1, true);
 								}
 								else if (w.current_rate_index > 0)
 								{
-									LogFormatted("Reducing Warp-Transition");
+									Log.info("Reducing Warp-Transition");
                                     //Make sure we cancel autowarp if its engaged
                                     TimeWarp.fetch.CancelAutoWarp();
 									TimeWarp.SetRate(w.current_rate_index - 1, false);
@@ -1872,13 +1871,13 @@ namespace KerbalAlarmClock
 							}
 							catch (Exception ex)
 							{
-								LogFormatted("Error Raising API Event-Closed Alarm: {0}\r\n{1}", ex.Message, ex.StackTrace);
+								Log.error(ex, "Error Raising API Event-Closed Alarm");
 							}
 
 						}
 
-						LogFormatted("Actioning Alarm");
-						LogFormatted_DebugOnly("{0}",tmpAlarm.Actions);
+						Log.info("Actioning Alarm");
+                        Log.dbg("{0}",tmpAlarm.Actions);
 					}
 
 			}
@@ -1912,7 +1911,7 @@ namespace KerbalAlarmClock
 				{
 					try
 					{
-						LogFormatted("Adding repeat alarm for ({0}->{1})", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName);
+						Log.info("Adding repeat alarm for ({0}->{1})", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName);
 						//find the next transfer from the modelled data
 						KACXFerModelPoint tmpModelPoint = KACResources.lstXferModelPoints.FirstOrDefault(
 								   m => FlightGlobals.Bodies[m.Origin].bodyName == alarmToCheck.XferOriginBodyName &&
@@ -1933,18 +1932,18 @@ namespace KerbalAlarmClock
 							}
 							else
 							{
-								LogFormatted("Alarm already exists, not adding repeat({0}->{1}): UT={2}", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName, XferNextTargetEventTime.UT);
+								Log.info("Alarm already exists, not adding repeat({0}->{1}): UT={2}", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName, XferNextTargetEventTime.UT);
 							}
 						}
 						else
 						{
-							LogFormatted("Unable to find a future model data point for this transfer({0}->{1})", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName);
+							Log.info("Unable to find a future model data point for this transfer({0}->{1})", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName);
 						}
 
 					}
 					catch (Exception ex)
 					{
-						LogFormatted("Unable to find a future model data point for this transfer({0}->{1})\r\n{2}", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName, ex.Message);
+						Log.error(ex, "Unable to find a future model data point for this transfer({0}->{1})", alarmToCheck.XferOriginBodyName, alarmToCheck.XferTargetBodyName);
 					}
 				}
 				else if (alarmToCheck.TypeOfAlarm == KACAlarm.AlarmTypeEnum.Apoapsis || alarmToCheck.TypeOfAlarm == KACAlarm.AlarmTypeEnum.Periapsis)
@@ -1955,12 +1954,12 @@ namespace KerbalAlarmClock
 
 						if(v == null)
 						{
-							LogFormatted("Unable to find the vessel to work out the repeat ({0})", alarmToCheck.VesselID);
+							Log.warn("Unable to find the vessel to work out the repeat ({0})", alarmToCheck.VesselID);
 						}
 						else
 						{
 
-							LogFormatted("Adding repeat alarm for Ap/Pe ({0})", alarmToCheck.VesselID);
+							Log.info("Adding repeat alarm for Ap/Pe ({0})", alarmToCheck.VesselID);
 
 							//get the time of the next node if the margin is greater than 0
 							Double nextApPe = Planetarium.GetUniversalTime() + v.orbit.timeToAp + (alarmToCheck.AlarmMarginSecs>0?v.orbit.period:0);
@@ -1975,7 +1974,7 @@ namespace KerbalAlarmClock
 							}
 							else
 							{
-								LogFormatted("Alarm already exists, not adding repeat ({0}): UT={1}", alarmToCheck.VesselID, nextApPe);
+								Log.info("Alarm already exists, not adding repeat ({0}): UT={1}", alarmToCheck.VesselID, nextApPe);
 							}
 							
 							alarmToAdd = alarmToCheck.Duplicate(nextApPe);
@@ -1985,12 +1984,12 @@ namespace KerbalAlarmClock
 					}
 					catch (Exception ex)
 					{
-						LogFormatted("Unable to add a repeat alarm ({0})\r\n{1}", alarmToCheck.VesselID, ex.Message);
+						Log.error(ex, "Unable to add a repeat alarm ({0})\r\n{1}");
 					}
 				}
 				else if (alarmToCheck.RepeatAlarmPeriod.UT > 0)
 				{
-					LogFormatted("Adding repeat alarm for {0}:{1}-{2}+{3}", alarmToCheck.TypeOfAlarm, alarmToCheck.Name, alarmToCheck.AlarmTime.UT, alarmToCheck.RepeatAlarmPeriod.UT);
+					Log.info("Adding repeat alarm for {0}:{1}-{2}+{3}", alarmToCheck.TypeOfAlarm, alarmToCheck.Name, alarmToCheck.AlarmTime.UT, alarmToCheck.RepeatAlarmPeriod.UT);
 					alarmToAdd = alarmToCheck.Duplicate(alarmToCheck.AlarmTime.UT + alarmToCheck.RepeatAlarmPeriod.UT);
 					return true;
 				}

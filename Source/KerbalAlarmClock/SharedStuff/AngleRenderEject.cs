@@ -105,7 +105,7 @@ namespace KerbalAlarmClock
                 return;
             }
 
-            LogFormatted("Initializing EjectAngle Render");
+            Log.detail("Initializing EjectAngle Render");
             objLineStart = new GameObject("LineStart");
             objLineStartArrow1 = new GameObject("LineStartArrow1");
             objLineStartArrow2 = new GameObject("LineStartArrow2");

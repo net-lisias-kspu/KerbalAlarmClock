@@ -699,7 +699,7 @@ namespace KerbalAlarmClock
             catch (Exception ex)
             {
                 GUILayout.Label("Unable to combine all text fields to date", GUILayout.ExpandWidth(true));
-                LogFormatted_DebugOnly("{0}\r\n{1}", ex.Message, ex.StackTrace);
+                Log.error(ex, this);
             }
         }
 
@@ -1666,7 +1666,7 @@ namespace KerbalAlarmClock
                         catch (Exception ex)
                         {
                             GUILayout.Label("Unable to determine model data", KACResources.styleContent, GUILayout.ExpandWidth(true));
-                            LogFormatted("Error determining model data: {0}", ex.Message);
+                            Log.error(ex, "Error determining model data: {0}");
                         }
                     }
                     GUILayout.EndHorizontal();
@@ -1692,7 +1692,7 @@ namespace KerbalAlarmClock
                             }
                             catch (Exception ex)
                             {
-                                LogFormatted("Error determining model data: {0}", ex.Message);
+								Log.error(ex, "Error determining model data");
                             }
                         }
                     }
@@ -1795,7 +1795,7 @@ namespace KerbalAlarmClock
                             catch (Exception ex)
                             {
                                 GUILayout.Label("Unable to determine model data", KACResources.styleContent, GUILayout.ExpandWidth(true));
-                                LogFormatted("Error determining model data: {0}", ex.Message);
+                                Log.error(ex, "Error determining model data");
                             }
                         }
                         Boolean blnSelected = (intXferCurrentTarget == intTarget);
@@ -1916,8 +1916,7 @@ namespace KerbalAlarmClock
                 if (intXferCurrentTarget >= XferTargetBodies.Count) 
                     intXferCurrentTarget = 0;
                 GUILayout.Label("Something weird has happened");
-                LogFormatted(ex.Message);
-                LogFormatted(ex.StackTrace);
+                Log.error(ex, this);
             }
 
 

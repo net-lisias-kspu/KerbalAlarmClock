@@ -33,8 +33,8 @@ Global
 		$0.CSharpFormattingPolicy = $2
 		$2.scope = text/x-csharp
 		$0.TextStylePolicy = $3
-		$3.FileWidth = 132
-		$3.EolMarker = Unix
+		$3.FileWidth = 80
 		$3.scope = text/plain
+		$3.TabsToSpaces = True
 	EndGlobalSection
 EndGlobal

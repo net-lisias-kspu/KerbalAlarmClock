@@ -570,7 +570,7 @@ namespace KerbalAlarmClock
     //                                TargetObject = KerbalAlarmClock.CelestialBody(TargetParts[1]);
     //                            break;
     //                        default:
-    //                            MonoBehaviourExtended.LogFormatted("No Target Found:{0}", TargetLoader);
+    //                            Log.dbg("No Target Found:{0}", TargetLoader);
     //                            break;
     //                    }
     //                }
@@ -771,8 +771,8 @@ namespace KerbalAlarmClock
     //                }
     //                catch (Exception ex)
     //                {
-    //                    MonoBehaviourExtended.LogFormatted("Unable to load transfer details for {0}", Name);
-    //                    MonoBehaviourExtended.LogFormatted(ex.Message);
+    //                    Log.dbg("Unable to load transfer details for {0}", Name);
+    //                    Log.dbg(ex.Message);
     //                }
     //                break;
     //            case AlarmType.AscendingNode:
@@ -821,8 +821,8 @@ namespace KerbalAlarmClock
     //            }
     //            catch (Exception ex)
     //            {
-    //                MonoBehaviourExtended.LogFormatted("Unable to load transfer details for {0}", Name);
-    //                MonoBehaviourExtended.LogFormatted(ex.Message);
+    //                Log.dbg("Unable to load transfer details for {0}", Name);
+    //                Log.dbg(ex.Message);
     //            }
     //        }
     //        if (vars[12] != "")
@@ -837,14 +837,14 @@ namespace KerbalAlarmClock
     //        //LogFormatted("A:{0},T:{1:0},Act:{2:0}", this.Name, CurrentUT, this.ActionedAt);
     //        if (ActionedAt > 0 && CurrentUT > ActionedAt)
     //        {
-    //            MonoBehaviourExtended.LogFormatted("Suppressing Alarm on Load:{0}", this.Name);
+    //            Log.dbg("Suppressing Alarm on Load:{0}", this.Name);
     //            this.Triggered = true;
     //            this.Actioned = true;
     //            this.AlarmWindowClosed = true;
     //        }
     //        else if (ActionedAt > CurrentUT)
     //        {
-    //            MonoBehaviourExtended.LogFormatted("Reenabling Alarm on Load:{0}", this.Name);
+    //            Log.dbg("Reenabling Alarm on Load:{0}", this.Name);
     //            this.Triggered = false;
     //            this.Actioned = false;
     //            this.ActionedAt = 0;
@@ -901,7 +901,7 @@ namespace KerbalAlarmClock
     //        List<ManeuverNode> lstReturn = new List<ManeuverNode>();
 
     //        String[] strInputParts = strInput.Split(",".ToCharArray());
-    //        MonoBehaviourExtended.LogFormatted("Found {0} Maneuver Nodes to deserialize", strInputParts.Length / 8);
+    //        Log.dbg("Found {0} Maneuver Nodes to deserialize", strInputParts.Length / 8);
 
     //        //There are 8 parts per mannode
     //        for (int iNode = 0; iNode < strInputParts.Length / 8; iNode++)

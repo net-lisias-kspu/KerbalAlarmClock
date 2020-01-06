@@ -374,8 +374,8 @@ namespace KerbalAlarmClock
                     }
                     catch (Exception ex)
                     {
-                        MonoBehaviourExtended.LogFormatted("webversion: '{0}'", this.VersionWeb);
-                        MonoBehaviourExtended.LogFormatted("Unable to compare versions: {0}", ex.Message);
+                        Log.dbg("webversion: '{0}'", this.VersionWeb);
+                        Log.dbg("Unable to compare versions: {0}", ex.Message);
                         return false;
                     }
 
@@ -403,25 +403,25 @@ namespace KerbalAlarmClock
                     if (ForceCheck)
                     {
                         blnDoCheck = true;
-                        MonoBehaviourExtended.LogFormatted("Starting Version Check-Forced");
+                        Log.dbg("Starting Version Check-Forced");
                     }
                     //else if (this.VersionWeb == "")
                     //{
                     //    blnDoCheck = true;
-                    //    MonoBehaviourExtended.LogFormatted("Starting Version Check-No current web version stored");
+                    //    Log.dbg("Starting Version Check-No current web version stored");
                     //}
                     else if (this.VersionCheckDate_Attempt < DateTime.Now.AddYears(-9))
                     {
                         blnDoCheck = true;
-                        MonoBehaviourExtended.LogFormatted("Starting Version Check-No current date stored");
+                        Log.dbg("Starting Version Check-No current date stored");
                     }
                     else if (this.VersionCheckDate_Attempt.Date != DateTime.Now.Date)
                     {
                         blnDoCheck = true;
-                        MonoBehaviourExtended.LogFormatted("Starting Version Check-stored date is not today");
+                        Log.dbg("Starting Version Check-stored date is not today");
                     }
                     else
-                        MonoBehaviourExtended.LogFormatted("Skipping version check");
+                        Log.dbg("Skipping version check");
 
                     if (blnDoCheck)
                     {
@@ -429,14 +429,14 @@ namespace KerbalAlarmClock
                     }
                 }
                 else
-                    MonoBehaviourExtended.LogFormatted("Starting Version Check-version check already running");
+                    Log.dbg("Starting Version Check-version check already running");
 
                 blnReturn = true;
             }
             catch (Exception ex)
             {
-                MonoBehaviourExtended.LogFormatted("Failed to run the update test");
-                MonoBehaviourExtended.LogFormatted(ex.Message);
+                Log.dbg("Failed to run the update test");
+                Log.dbg(ex.Message);
             }
             return blnReturn;
         }
@@ -453,7 +453,7 @@ namespace KerbalAlarmClock
             this.Save();
 
             //now do the download
-            MonoBehaviourExtended.LogFormatted("Reading version from Web");
+            Log.dbg("Reading version from Web");
             wwwVersionCheck = new WWW(VersionCheckURL);
             yield return wwwVersionCheck;
             if (wwwVersionCheck.error == null)
@@ -462,7 +462,7 @@ namespace KerbalAlarmClock
             }
             else
             {
-                MonoBehaviourExtended.LogFormatted("Version Download failed:{0}", wwwVersionCheck.error);
+                Log.dbg("Version Download failed:{0}", wwwVersionCheck.error);
             }
             VersionCheckRunning = false;
         }
@@ -474,12 +474,12 @@ namespace KerbalAlarmClock
                 //get the response from the variable and work with it
                 //Parse it for the version String
                 String strFile = wwwVersionCheck.text;
-                MonoBehaviourExtended.LogFormatted("Response Length:" + strFile.Length);
-                MonoBehaviourExtended.LogFormatted("File:{0}", strFile);
+                Log.dbg("Response Length:" + strFile.Length);
+                Log.dbg("File:{0}", strFile);
 
                 Match matchVersion;
                 matchVersion = Regex.Match(strFile, "(?<=\\|LATESTVERSION\\|).+(?=\\|LATESTVERSION\\|)", System.Text.RegularExpressions.RegexOptions.Singleline);
-                MonoBehaviourExtended.LogFormatted("Got Version '" + matchVersion.ToString() + "'");
+                Log.dbg("Got Version '" + matchVersion.ToString() + "'");
 
                 String strVersionWeb = matchVersion.ToString();
                 if (strVersionWeb != "")
@@ -495,11 +495,11 @@ namespace KerbalAlarmClock
             }
             catch (Exception ex)
             {
-                MonoBehaviourExtended.LogFormatted("Failed to read Version info from web");
-                MonoBehaviourExtended.LogFormatted(ex.Message);
+                Log.dbg("Failed to read Version info from web");
+                Log.dbg(ex.Message);
 
             }
-            MonoBehaviourExtended.LogFormatted("Version Check result:" + VersionCheckResult);
+            Log.dbg("Version Check result:" + VersionCheckResult);
 
             this.Save();
             VersionAttentionFlag = VersionAvailable;
@@ -514,7 +514,7 @@ namespace KerbalAlarmClock
         //        this.VersionCheckResult = "Unknown - check again later";
         //        this.VersionCheckDate_Attempt = DateTime.Now;
 
-        //        MonoBehaviourExtended.LogFormatted("Reading version from Web");
+        //        Log.dbg("Reading version from Web");
         //        //Page content FormatException is |LATESTVERSION|1.2.0.0|LATESTVERSION|
         //        //WWW www = new WWW("https://archive.codeplex.com/?p=kerbalalarmclock");
         //        WWW www = new WWW("https://sites.google.com/site/kerbalalarmclock/latestversion");
@@ -522,11 +522,11 @@ namespace KerbalAlarmClock
 
         //        //Parse it for the version String
         //        String strFile = www.text;
-        //        MonoBehaviourExtended.LogFormatted("Response Length:" + strFile.Length);
+        //        Log.dbg("Response Length:" + strFile.Length);
 
         //        Match matchVersion;
         //        matchVersion = Regex.Match(strFile, "(?<=\\|LATESTVERSION\\|).+(?=\\|LATESTVERSION\\|)", System.Text.RegularExpressions.RegexOptions.Singleline);
-        //        MonoBehaviourExtended.LogFormatted("Got Version '" + matchVersion.ToString() + "'");
+        //        Log.dbg("Got Version '" + matchVersion.ToString() + "'");
 
         //        String strVersionWeb = matchVersion.ToString();
         //        if (strVersionWeb != "")
@@ -543,11 +543,11 @@ namespace KerbalAlarmClock
         //    }
         //    catch (Exception ex)
         //    {
-        //        MonoBehaviourExtended.LogFormatted("Failed to read Version info from web");
-        //        MonoBehaviourExtended.LogFormatted(ex.Message);
+        //        Log.dbg("Failed to read Version info from web");
+        //        Log.dbg(ex.Message);
 
         //    }
-        //    MonoBehaviourExtended.LogFormatted("Version Check result:" + VersionCheckResult);
+        //    Log.dbg("Version Check result:" + VersionCheckResult);
         //    return blnReturn;
         //}
 #endregion

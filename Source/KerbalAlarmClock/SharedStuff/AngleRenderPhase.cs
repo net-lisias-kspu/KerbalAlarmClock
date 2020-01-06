@@ -121,7 +121,7 @@ namespace KerbalAlarmClock
                 return;
             }
 
-            LogFormatted("Initializing Phase Angle Render");
+			Log.detail("Initializing Phase Angle Render");
 
             //Get the orbit lines material so things look similar
             Material orbitLines = ((MapView)GameObject.FindObjectOfType(typeof(MapView))).orbitLinesMaterial;

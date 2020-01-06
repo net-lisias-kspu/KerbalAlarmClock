@@ -15,11 +15,11 @@ namespace KerbalAlarmClock
 
 		public void DebugActionTimed(GameScenes loadedscene)
 		{
-			LogFormatted("Timed Debug Action Initiated");
-			//LogFormatted("Stuff Here");
-			//LogFormatted(FlightGlobals.ActiveVessel.orbit.closestEncounterBody.bodyName);
-			//LogFormatted(FlightGlobals.ActiveVessel.orbit.ClAppr.ToString());
-			//LogFormatted(FlightGlobals.ActiveVessel.orbit.closestEncounterBody.sphereOfInfluence.ToString());
+			Log.detail("Timed Debug Action Initiated");
+			//Log.detail(("Stuff Here");
+			//Log.detail((FlightGlobals.ActiveVessel.orbit.closestEncounterBody.bodyName);
+			//Log.detail((FlightGlobals.ActiveVessel.orbit.ClAppr.ToString());
+			//Log.detail((FlightGlobals.ActiveVessel.orbit.closestEncounterBody.sphereOfInfluence.ToString());
 
 			// how to detect Escape - eg to Solar orbit
 
@@ -75,7 +75,7 @@ namespace KerbalAlarmClock
 		Boolean blnTriggerFlag = false;
 		public void DebugActionTriggered(GameScenes loadedscene)
 		{
-			LogFormatted("Manual Debug Action Initiated");
+			Log.detail("Manual Debug Action Initiated");
 
 			blnTriggerFlag = true;
 
@@ -267,7 +267,7 @@ namespace KerbalAlarmClock
 		public void FillDebugWindow(int WindowID)
 		{
             try { GUILayout.BeginVertical(); }
-            catch (Exception) { LogFormatted("FillDebugWindow: GUILayout not ready yet", this._ClassName); return; }
+            catch (Exception e) { Log.error(e, "FillDebugWindow: GUILayout not ready yet on {0}", this._ClassName); return; }
 			//GUILayout.BeginHorizontal();
 			////GUILayout.Label("Alarm Add Interface:", KACResources.styleAddHeading, GUILayout.Width(90));
 			////AddInterfaceType = Convert.ToInt32(GUILayout.TextField(AddInterfaceType.ToString()));

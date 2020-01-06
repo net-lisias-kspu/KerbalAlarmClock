@@ -22,10 +22,10 @@ namespace KerbalAlarmClock
             //set up the hookable object
             APIInstance = this;
 
-            //set up any events we need from the core code
+			//set up any events we need from the core code
 
-            //flag it ready
-            LogFormatted("API Ready");
+			//flag it ready
+			Log.detail("API Ready");
             APIReady = true;
         }
 
@@ -34,12 +34,12 @@ namespace KerbalAlarmClock
             //tear it down
             APIInstance = null;
 
-            //Tear down any events we need to remove
-            //try { 
-                
-            //} catch (Exception) { }
-       
-            LogFormatted("API Cleaned up");
+			//Tear down any events we need to remove
+			//try { 
+
+			//} catch (Exception) { }
+
+			Log.detail("API Cleaned up");
             APIReady = false;
         }
 
@@ -104,18 +104,18 @@ namespace KerbalAlarmClock
                 KACAlarm tmpAlarm = alarms.FirstOrDefault(a => a.ID == AlarmID);
                 if (tmpAlarm != null)
                 {
-                    LogFormatted("API-DeleteAlarm-Deleting:{0}", AlarmID);
+					Log.detail("API-DeleteAlarm-Deleting:{0}", AlarmID);
                     alarms.Remove(tmpAlarm);
                     blnReturn = true;
                 }
                 else
                 {
-                    LogFormatted("API-DeleteAlarm-ID Not Found:{0}", AlarmID);
+					Log.detail("API-DeleteAlarm-ID Not Found:{0}", AlarmID);
                 }
             }
             catch (Exception ex)
             {
-                LogFormatted("API-DeleteAlarm-Error:{0}\r\n{1}", AlarmID,ex.Message);
+				Log.detail("API-DeleteAlarm-Error:{0}\r\n{1}", AlarmID,ex.Message);
             }
             return blnReturn;
 

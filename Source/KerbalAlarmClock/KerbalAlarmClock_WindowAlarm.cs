@@ -158,7 +158,7 @@ namespace KerbalAlarmClock
 				try { 
 					APIInstance_AlarmStateChanged(tmpAlarm, AlarmStateEventsEnum.Closed);
 				} catch (Exception ex) {
-					MonoBehaviourExtended.LogFormatted("Error Raising API Event-Closed Alarm: {0}\r\n{1}", ex.Message, ex.StackTrace);
+					Log.dbg("Error Raising API Event-Closed Alarm: {0}\r\n{1}", ex.Message, ex.StackTrace);
 				} 
 
 				if (tmpAlarm.Actions.DeleteWhenDone)
@@ -546,7 +546,7 @@ namespace KerbalAlarmClock
                         }
                         intReturnNoOfButtons++;
                         if(GUILayout.Button(strRestoretext, KACResources.styleButton)) {
-                            LogFormatted("Attempting to add Node");
+							Log.info("Attempting to add Node");
                             KACWorkerGameState.CurrentVessel.patchedConicSolver.maneuverNodes.Clear();
                             RestoreManeuverNodeList(tmpAlarm.ManNodes);
                         }
@@ -683,7 +683,7 @@ namespace KerbalAlarmClock
                 }
                 catch (Exception ex)
                 {
-                    LogFormatted("Unable to set vessel as active in Tracking station:\r\n{0}", ex.Message);
+                    Log.error(ex, "Unable to set vessel as active in Tracking station");
                 }
             }
         }
@@ -694,7 +694,7 @@ namespace KerbalAlarmClock
 			Boolean blnJumped = true;
 			if (KACWorkerGameState.CurrentGUIScene == GameScenes.FLIGHT)
 			{
-                LogFormatted_DebugOnly("Switching in Scene");
+                Log.dbg("Switching in Scene");
                 if(KACUtils.BackupSaves() || !KerbalAlarmClock.settings.CancelFlightModeJumpOnBackupFailure)
                     vesselToJumpTo = vTarget;
 
@@ -704,19 +704,19 @@ namespace KerbalAlarmClock
                     //}
 				else 
 				{
-					LogFormatted("Not Switching - unable to backup saves");
+					Log.info("Not Switching - unable to backup saves");
 					ShowBackupFailedWindow("Not Switching - unable to backup saves");
 					blnJumped = false;
 				}
 			}
 			else
 			{
-                LogFormatted_DebugOnly("Switching in by Save");
+                Log.dbg("Switching in by Save");
 
                 int intVesselidx = getVesselIdx(vTarget);
 				if (intVesselidx < 0)
 				{
-					LogFormatted("Couldn't find the index for the vessel {0}({1})", vTarget.vesselName, vTarget.id.ToString());
+					Log.info("Couldn't find the index for the vessel {0}({1})", vTarget.vesselName, vTarget.id.ToString());
 					ShowBackupFailedWindow("Not Switching - unable to find vessel index");
 					blnJumped = false;
 				}
@@ -735,14 +735,14 @@ namespace KerbalAlarmClock
 						}
 						else
 						{
-							LogFormatted("Not Switching - unable to backup saves");
+							Log.info("Not Switching - unable to backup saves");
 							ShowBackupFailedWindow("Not Switching - unable to backup saves");
 							blnJumped = false;
 						}
 					}
 					catch (Exception ex)
 					{
-						LogFormatted("Unable to save/load for jump to ship: {0}", ex.Message);
+						Log.error(ex, "Unable to save/load for jump to ship");
 						ShowBackupFailedWindow("Not Switching - failed in loading new position");
 						blnJumped = false;
 					}
@@ -778,7 +778,7 @@ namespace KerbalAlarmClock
 			{
 				if (FlightGlobals.Vessels[i].id == vtarget.id)
 				{
-					LogFormatted("Found Target idx={0} ({1})", i, vtarget.id.ToString());
+					Log.info("Found Target idx={0} ({1})", i, vtarget.id.ToString());
 					return i;
 				}
 			}

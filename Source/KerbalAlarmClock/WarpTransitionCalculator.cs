@@ -65,7 +65,7 @@ namespace KerbalAlarmClock
             {
                 return;
             }
-            MonoBehaviourExtended.LogFormatted("WarpRates:{0}", TimeWarp.fetch.warpRates.Length);
+            Log.dbg("WarpRates:{0}", TimeWarp.fetch.warpRates.Length);
             WarpRateTransitionPeriods = new List<WarpTransition>();
             for (int i = 0; i < TimeWarp.fetch.warpRates.Length; i++)
             {
@@ -89,7 +89,7 @@ namespace KerbalAlarmClock
 
             //foreach (WarpTransition item in WarpRateTransitionPeriods.OrderBy(w => w.Index))
             //{
-            //    MonoBehaviourExtended.LogFormatted_DebugOnly("{0}({1}):Up-{2} Down-{3} To0-{4}", item.Rate, item.Index, item.UTToRateUp, item.UTToRateDown, item.UTTo1Times);
+            //    Log.dbg("{0}({1}):Up-{2} Down-{3} To0-{4}", item.Rate, item.Index, item.UTToRateUp, item.UTToRateDown, item.UTTo1Times);
             //}
         }
 

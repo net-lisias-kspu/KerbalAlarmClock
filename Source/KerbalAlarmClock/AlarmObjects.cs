@@ -384,7 +384,7 @@ namespace KerbalAlarmClock
                                     TargetObject = KerbalAlarmClock.CelestialBody(TargetParts[1]);
                                 break;
                             default:
-                                MonoBehaviourExtended.LogFormatted("No Target Found:{0}", TargetLoader);
+                                Log.warn("No Target Found:{0}", TargetLoader);
                                 break;
                         }
                     }
@@ -494,7 +494,7 @@ namespace KerbalAlarmClock
             List<ManeuverNode> lstReturn = new List<ManeuverNode>();
 
             String[] strInputParts = strInput.Split(",".ToCharArray());
-            MonoBehaviourExtended.LogFormatted("Found {0} Maneuver Nodes to deserialize", strInputParts.Length / 8);
+            Log.dbg("Found {0} Maneuver Nodes to deserialize", strInputParts.Length / 8);
 
             //There are 8 parts per mannode
             for (int iNode = 0; iNode < strInputParts.Length / 8; iNode++)
@@ -602,7 +602,7 @@ namespace KerbalAlarmClock
     //    public ManeuverNodeStorageList FromManNodeList(List<ManeuverNode> ManNodesToStore)
     //    {
     //        this.Clear();
-    //        MonoBehaviourExtended.LogFormatted("{0}", ManNodesToStore.Count);
+    //        Log.dbg("{0}", ManNodesToStore.Count);
     //        if (ManNodesToStore == null) return this;
     //        foreach (ManeuverNode item in ManNodesToStore)
     //        {
@@ -648,7 +648,7 @@ namespace KerbalAlarmClock
             try {
                 KerbalAlarmClock.APIInstance.APIInstance_AlarmStateChanged(item, KerbalAlarmClock.AlarmStateEventsEnum.Created);
             } catch (Exception ex) {
-                MonoBehaviourExtended.LogFormatted("Error Raising API Event-Created Alarm: {0}\r\n{1}", ex.Message, ex.StackTrace);
+                Log.error(ex, "Error Raising API Event-Created Alarm");
             } 
             base.Add(item);
         }
@@ -660,7 +660,7 @@ namespace KerbalAlarmClock
             try {
                 KerbalAlarmClock.APIInstance.APIInstance_AlarmStateChanged(item, KerbalAlarmClock.AlarmStateEventsEnum.Deleted);
             } catch (Exception ex) {
-                MonoBehaviourExtended.LogFormatted("Error Raising API Event-Deleted Alarm: {0}\r\n{1}", ex.Message, ex.StackTrace);
+                Log.error(ex, "Error Raising API Event-Deleted Alarm");
             } 
             base.Remove(item);
         }
@@ -669,14 +669,14 @@ namespace KerbalAlarmClock
         {
             KACAlarmListStorage lstTemp = new KACAlarmListStorage();
             lstTemp.list = this;
-            //MonoBehaviourExtended.LogFormatted("{0}", lstTemp.list.Count);
+            //Log.dbg("{0}", lstTemp.list.Count);
             //foreach (KACAlarm item in lstTemp.list)
             //{
-            //    MonoBehaviourExtended.LogFormatted("{0}", item.AsConfigNode);
+            //    Log.dbg("{0}", item.AsConfigNode);
             //}
             ConfigNode cnReturn = lstTemp.AsConfigNode;
-            MonoBehaviourExtended.LogFormatted_DebugOnly("Encoding:{0}", cnReturn);
-            //MonoBehaviourExtended.LogFormatted("{0}", cnReturn.GetNode("list"));
+            Log.dbg("Encoding:{0}", cnReturn);
+            //Log.dbg("{0}", cnReturn.GetNode("list"));
             return cnReturn;
         }
 
@@ -686,11 +686,11 @@ namespace KerbalAlarmClock
             {
                 if (AlarmListNode.CountNodes < 1)
                 {
-                    MonoBehaviourExtended.LogFormatted("No Alarms to Load");
+                    Log.detail("No Alarms to Load");
                 }
                 else
                 {
-                    MonoBehaviourExtended.LogFormatted_DebugOnly("Decoding:{0}", AlarmListNode);
+                    Log.dbg("Decoding:{0}", AlarmListNode);
                     KACAlarmListStorage lstTemp = new KACAlarmListStorage();
                     ConfigNode.LoadObjectFromConfig(lstTemp, AlarmListNode);
                     //this.Clear();
@@ -699,9 +699,7 @@ namespace KerbalAlarmClock
             }
             catch (Exception ex)
             {
-                MonoBehaviourExtended.LogFormatted("Failed to Load Alarms from Save File");
-                MonoBehaviourExtended.LogFormatted("Message: {0}", ex.Message);
-                MonoBehaviourExtended.LogFormatted("AlarmListNode: {0}", AlarmListNode);
+                Log.error(ex, "Failed to Load Alarms from Save File! AlarmListNode: {0}", AlarmListNode);
             }
         }
 

@@ -161,7 +161,7 @@ namespace KerbalAlarmClock
 
         internal static void loadGUIAssets()
         {
-            MonoBehaviourExtended.LogFormatted("Loading Textures");
+            Log.dbg("Loading Textures");
 
             try
             {
@@ -306,11 +306,11 @@ namespace KerbalAlarmClock
                 //KACUtils.LoadImageFromFile(ref txtBlackSquare, "Textures", "BlackSquare.png");
                 //KACUtils.LoadImageFromFile(ref txtWhiteSquare, "Textures", "WhiteSquare.png");
 
-                MonoBehaviourExtended.LogFormatted("Loaded Textures");
+                Log.dbg("Loaded Textures");
             }
             catch (Exception)
             {
-                MonoBehaviourExtended.LogFormatted("Failed to Load Textures - are you missing a file?");
+                Log.dbg("Failed to Load Textures - are you missing a file?");
             }
 
 
@@ -537,7 +537,7 @@ namespace KerbalAlarmClock
 
         internal static void LoadSounds()
         {
-            MonoBehaviourExtended.LogFormatted("Loading Sounds");
+            Log.dbg("Loading Sounds");
 
             clipAlarms = new Dictionary<string, AudioClip>();
             clipAlarms.Add("None", null);
@@ -562,7 +562,7 @@ namespace KerbalAlarmClock
                     }
                     catch (Exception)
                     {
-                        //MonoBehaviourExtended.LogFormatted("Unable to load AudioClip from GameDB:{0}/{1}", PathPluginSounds,fileClip.Name);
+                        //Log.dbg("Unable to load AudioClip from GameDB:{0}/{1}", PathPluginSounds,fileClip.Name);
                     }
                 }
             }
@@ -589,7 +589,7 @@ namespace KerbalAlarmClock
             }
             catch (Exception)
             {
-                MonoBehaviourExtended.LogFormatted("Failed to load (are you missing a file - and check case):{0}/{1}", FolderPath, FileName);
+                Log.dbg("Failed to load (are you missing a file - and check case):{0}/{1}", FolderPath, FileName);
             }
             return blnReturn;
         }
@@ -1209,7 +1209,7 @@ namespace KerbalAlarmClock
 
         internal static Boolean LoadModelPoints()
         {
-            MonoBehaviourExtended.LogFormatted("Loading Transfer Modelling Data");
+            Log.dbg("Loading Transfer Modelling Data");
             Boolean blnReturn = false;
             try
             {
@@ -1232,11 +1232,11 @@ namespace KerbalAlarmClock
                         ));
                 }
                 blnReturn = true;
-                MonoBehaviourExtended.LogFormatted("Transfer Modelling Data Load Complete");
+                Log.dbg("Transfer Modelling Data Load Complete");
             }
             catch (Exception ex)
             {
-                MonoBehaviourExtended.LogFormatted("Transfer Modelling Data Failed - is the data file there and correct\r\n{0}", ex.Message);
+                Log.dbg("Transfer Modelling Data Failed - is the data file there and correct\r\n{0}", ex.Message);
             }
             return blnReturn;
         }

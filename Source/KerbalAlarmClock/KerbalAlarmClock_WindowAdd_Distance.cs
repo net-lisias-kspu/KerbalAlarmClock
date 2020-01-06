@@ -179,7 +179,7 @@ namespace KerbalAlarmClock
             GUILayout.Label("Select Target:",KACResources.styleAddXferName);
             if (DrawRadioListVertical(ref intSelectediTarget, iTargets.Select(x => x.GetName()).ToArray()))
             {
-                LogFormatted("Distance Target is:{0}", iTargets[intSelectediTarget].GetName());
+                Log.info("Distance Target is:{0}", iTargets[intSelectediTarget].GetName());
             }
             GUILayout.EndHorizontal();
 

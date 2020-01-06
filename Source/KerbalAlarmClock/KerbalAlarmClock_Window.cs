@@ -664,7 +664,7 @@ namespace KerbalAlarmClock
         internal void FillWindow(Int32 intWindowID)
         {
             try { GUILayout.BeginVertical(); }
-            catch (Exception) { LogFormatted("FillWindow: GUILayout not ready yet"); return; }
+            catch (Exception e) { Log.error(e, "FillWindow: GUILayout not ready yet"); return; }
 
             //Audio Indicator
             if (audioController.isPlaying)
@@ -960,7 +960,7 @@ namespace KerbalAlarmClock
                     //watch for mousedown
                     if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
                     {
-                        LogFormatted_DebugOnly("Resize Width Start");
+                        Log.dbg("Resize Width Start");
                         resizingWidth = true;
                     }
                 }
@@ -1019,7 +1019,7 @@ namespace KerbalAlarmClock
             //kill the resize bools if mouse up
             if ((resizingWidth || resizingHeight || resizingBoth) && Event.current.type == EventType.MouseUp && Event.current.button == 0)
             {
-                LogFormatted_DebugOnly("Resize Stop");
+                Log.dbg("Resize Stop");
                 resizingWidth = resizingHeight = resizingBoth = false;
 
                 //reset the cursor
@@ -1651,7 +1651,7 @@ namespace KerbalAlarmClock
             if (Old != New)
             {
                 Old = New;
-                LogFormatted_DebugOnly("Toggle Changed:" + New.ToString());
+                Log.dbg("Toggle Changed: {0}", New);
                 return true;
             }
             return false;
@@ -1665,7 +1665,7 @@ namespace KerbalAlarmClock
             if (strReturn != strVar)
             {
                 strVar = strReturn;
-                LogFormatted("String Changed:" + strVar.ToString());
+                Log.info("String Changed: {0}", strVar);
                 return true;
             }
             return false;
@@ -1794,7 +1794,7 @@ namespace KerbalAlarmClock
             {
                 //if its clicked then toggle the boolean
                 blnVar = !blnVar;
-                LogFormatted_DebugOnly("Toggle Changed:" + blnVar);
+                Log.dbg("Toggle Changed: {0}", blnVar);
             }
 
             GUILayout.EndHorizontal();
@@ -1844,7 +1844,7 @@ namespace KerbalAlarmClock
                 GUILayout.EndVertical();
 
             if (InitialChoice != Selected)
-                LogFormatted(String.Format("Radio List Changed:{0} to {1}", InitialChoice, Selected));
+                Log.detail("Radio List Changed:{0} to {1}", InitialChoice, Selected);
 
 
             return !(InitialChoice == Selected);
@@ -1873,7 +1873,7 @@ namespace KerbalAlarmClock
             }
             else
             {
-                LogFormatted_DebugOnly("{0} Changed. {1}->{2}", Message, Original.ToString(), New.ToString());
+                Log.dbg("{0} Changed. {1}->{2}", Message, Original.ToString(), New.ToString());
                 return true;
             }
 
@@ -2139,7 +2139,7 @@ namespace KerbalAlarmClock
             GUILayout.EndHorizontal();
 
             if (InitialChoice != Selected)
-                LogFormatted_DebugOnly(String.Format("Button List Changed:{0} to {1}", InitialChoice, Selected));
+                Log.dbg("Button List Changed:{0} to {1}", InitialChoice, Selected);
 
 
             return !(InitialChoice == Selected);

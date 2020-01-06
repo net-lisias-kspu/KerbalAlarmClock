@@ -34,3 +34,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion(KerbalAlarmClock.Version.Number)]
 [assembly: AssemblyFileVersion(KerbalAlarmClock.Version.Number)]
 [assembly: KSPAssembly("KerbalAlarmClock", KerbalAlarmClock.Version.major, KerbalAlarmClock.Version.minor)]
+[assembly: KSPAssemblyDependency("KSPe", 2, 1)]

@@ -14,7 +14,7 @@ namespace KerbalAlarmClock
         /// </summary>
         void OnGUIAppLauncherReady()
         {
-            MonoBehaviourExtended.LogFormatted_DebugOnly("AppLauncherReady");
+            Log.dbg("AppLauncherReady");
             if (ApplicationLauncher.Ready)
             {
                 if (settings.ButtonStyleChosen == Settings.ButtonStyleEnum.Launcher )
@@ -30,12 +30,12 @@ namespace KerbalAlarmClock
                     }
                 }
             }
-            else { LogFormatted("App Launcher-Not Actually Ready"); }
+            else { Log.detail("App Launcher-Not Actually Ready"); }
         }
 
         void OnGameSceneLoadRequestedForAppLauncher(GameScenes SceneToLoad)
         {
-            LogFormatted_DebugOnly("GameSceneLoadRequest");
+            Log.dbg("GameSceneLoadRequest");
             DestroyAppLauncherButton();
         }
         internal ApplicationLauncherButton btnAppLauncher = null;
@@ -67,7 +67,7 @@ namespace KerbalAlarmClock
             }
             catch (Exception ex)
             {
-                MonoBehaviourExtended.LogFormatted("AppLauncher: Failed to set up App Launcher Button\r\n{0}", ex.Message);
+                Log.error(ex, "AppLauncher: Failed to set up App Launcher Button");
                 retButton = null;
             }
             lstButtons = KerbalAlarmClock.FindObjectsOfType<ApplicationLauncherButton>();
@@ -83,7 +83,7 @@ namespace KerbalAlarmClock
             if (btnAppLauncher != null)
             {
                 ApplicationLauncherButton[] lstButtons = KerbalAlarmClock.FindObjectsOfType<ApplicationLauncherButton>();
-                LogFormatted("AppLauncher: Destroying Button-Button Count:{0}", lstButtons.Length);
+                Log.detail("AppLauncher: Destroying Button-Button Count:{0}", lstButtons.Length);
                 ApplicationLauncher.Instance.RemoveModApplication(btnAppLauncher);
                 btnAppLauncher = null;
             }
@@ -97,7 +97,7 @@ namespace KerbalAlarmClock
         {
             if (!ApplicationLauncher.Ready)
             {
-                LogFormatted_DebugOnly("not ready yet");
+                Log.dbg("not ready yet");
                 AppLauncherToBeSetTrueAttemptDate = DateTime.Now;
                 return;
             }
@@ -105,7 +105,7 @@ namespace KerbalAlarmClock
 
             if (ButtonToToggle == null)
             {
-                LogFormatted_DebugOnly("Button Is Null");
+                Log.dbg("Button Is Null");
                 AppLauncherToBeSetTrueAttemptDate = DateTime.Now;
                 return;
             }
@@ -116,11 +116,11 @@ namespace KerbalAlarmClock
                 if (AppLauncherToBeSetTrueAttemptDate.AddSeconds(settings.AppLauncherSetTrueTimeOut) < DateTime.Now)
                 {
                     AppLauncherToBeSetTrue = false;
-                    LogFormatted("AppLauncher: Unable to set the AppButton to true - tried for {0} secs", settings.AppLauncherSetTrueTimeOut);
+                    Log.warn("AppLauncher: Unable to set the AppButton to true - tried for {0} secs", settings.AppLauncherSetTrueTimeOut);
                 }
                 else
                 {
-                    LogFormatted("Setting App Button True");
+                    Log.detail("Setting App Button True");
                     ButtonToToggle.SetTrue(true);
                 }
             }
@@ -131,25 +131,25 @@ namespace KerbalAlarmClock
         }
 
         void onAppLaunchToggleOn() {
-            MonoBehaviourExtended.LogFormatted_DebugOnly("TOn");
+            Log.dbg("TOn");
 
             WindowVisibleByActiveScene = true;
             settings.Save();
-            MonoBehaviourExtended.LogFormatted_DebugOnly("{0}",WindowVisibleByActiveScene);
+            Log.dbg("{0}",WindowVisibleByActiveScene);
         }
         void onAppLaunchToggleOff() {
-            MonoBehaviourExtended.LogFormatted_DebugOnly("TOff");
+            Log.dbg("TOff");
 
             WindowVisibleByActiveScene = false;
             settings.Save();
-            MonoBehaviourExtended.LogFormatted_DebugOnly("{0}", WindowVisibleByActiveScene);
+            Log.dbg("{0}", WindowVisibleByActiveScene);
         }
         void onAppLaunchHoverOn() {
-            MonoBehaviourExtended.LogFormatted_DebugOnly("HovOn");
+            Log.dbg("HovOn");
             //MouseOverAppLauncherBtn = true;
         }
         void onAppLaunchHoverOff() {
-            MonoBehaviourExtended.LogFormatted_DebugOnly("HovOff");
+            Log.dbg("HovOff");
             //MouseOverAppLauncherBtn = false; 
         }
 
