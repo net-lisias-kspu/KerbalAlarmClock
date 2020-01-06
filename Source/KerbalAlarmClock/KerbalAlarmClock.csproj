@@ -3,14 +3,13 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!-- Configuration Defaults; can be overridden in the .user file -->
   <PropertyGroup>
-    <KSP_DIR>..\..\_Versions\KSP_win_PluginTest</KSP_DIR>
-    <POST_BUILD_PS_SCRIPT>..\..\_Scripts\PostBuildScript.ps1</POST_BUILD_PS_SCRIPT>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{10D1E30F-1849-4B16-863C-4FDBBA120A1E}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <BaseIntermediateOutputPath>..\..\obj</BaseIntermediateOutputPath>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KerbalAlarmClock</RootNamespace>
     <AssemblyName>KerbalAlarmClock</AssemblyName>
@@ -26,7 +25,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -36,43 +35,21 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\LIB\managed\1.4.1\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>$(KSP_DIR)\KSP_x64_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\LIB\managed\1.4.1\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,21 +100,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-
-if exist "$(ProjectDir)$(POST_BUILD_PS_SCRIPT)" goto RUNPOSTBUILDPS
-echo "No PostBuildPS to run. Stopping here"
-exit 0
-
-:RUNPOSTBUILDPS
-echo.
-echo "Running PS Script"
-echo powershell -nologo -file "$(ProjectDir)$(POST_BUILD_PS_SCRIPT)" -projectName $(ProjectName) -targetPath $(TargetPath) -configurationName $(ConfigurationName)
-echo.
-powershell -nologo -file "$(ProjectDir)$(POST_BUILD_PS_SCRIPT)" -projectName $(ProjectName) -targetPath $(TargetPath) -configurationName $(ConfigurationName)
-exit 0
-
-	</PostBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

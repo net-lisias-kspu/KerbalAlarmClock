@@ -1,0 +1,18 @@
+{
+	"NAME"		: "Kerbal Alarm Clock /L Unofficial",
+	"URL"		: "https://raw.githubusercontent.com/net-lisias-kspu/KerbalAlarmClock/master/KerbalAlarmClock.version",
+	"DOWNLOAD"	: "https://github.com/net-lisias-kspu/KerbalAlarmClock/releases",
+	"CHANGE_LOG"	: "https://raw.githubusercontent.com/net-lisias-kspu/KerbalAlarmClock/master/CHANGE_LOG.md",
+	"CHANGE_LOG_URL": "https://raw.githubusercontent.com/net-lisias-kspu/KerbalAlarmClock/master/CHANGES.md",
+	"VERSION": {
+		"MAJOR":3,
+		"MINOR":12,
+		"PATCH":0,
+		"BUILD":0
+	 },
+	"KSP_VERSION_MIN": {
+		"MAJOR":1,
+		"MINOR":4,
+		"PATCH":1
+	}
+}
