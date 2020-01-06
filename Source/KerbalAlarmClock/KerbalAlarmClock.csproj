@@ -14,7 +14,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KerbalAlarmClock</RootNamespace>
     <AssemblyName>KerbalAlarmClock</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <SccProjectName>SAK</SccProjectName>
@@ -44,8 +43,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\LIB\managed\1.4.1\Assembly-CSharp.dll</HintPath>
     </Reference>
@@ -98,6 +95,12 @@
     <Compile Include="WarpTransitionCalculator.cs" />
     <Compile Include="Windows\AlarmImport.cs" />
     <Compile Include="Windows\ConfirmAlarmDelete.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Version.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Version.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

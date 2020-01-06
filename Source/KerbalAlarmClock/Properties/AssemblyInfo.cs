@@ -1,17 +1,16 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KerbalAlarmClock")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("KerbalAlarmClock /L Unofficial")]
+[assembly: AssemblyDescription("A time management and utility plugin for Kerbal Space Program")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TriggerTech")]
+[assembly: AssemblyCompany("L Aerospace/KSP Division")]
 [assembly: AssemblyProduct("KerbalAlarmClock")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2013-2020")]
+[assembly: AssemblyTrademark("TriggerTech, LisiasT")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -32,5 +31,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.12.0.0")]
-[assembly: AssemblyFileVersion("3.12.0.0")]
+[assembly: AssemblyVersion(KerbalAlarmClock.Version.Number)]
+[assembly: AssemblyFileVersion(KerbalAlarmClock.Version.Number)]
+[assembly: KSPAssembly("KerbalAlarmClock", KerbalAlarmClock.Version.major, KerbalAlarmClock.Version.minor)]
