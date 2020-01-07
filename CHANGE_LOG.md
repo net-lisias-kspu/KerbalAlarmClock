@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0503: 3.3.1.0 (TriggerAU) for KSP 1.0.0
+	+ Changed .version values to cater to CKAN and patch releases (Issue #129)
+	+ Updated some code around visibility of windows to fix scene changes (Issue #130)
+	+ Added separate values for VAB,SPH for visibility
+	+ `KSP Version: 1.0`
 * 2015-0428: 3.3.0.1 (TriggerAU) for KSP 1.0.0
 	+ KerbalStuff Release Issue - no code changes
 	+ `KSP Version: 1.0`
