@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.6.2.0 (TriggerAU) for KSP 0.22
+	+ Added functionality to allow you to jump to a ship from space center and tracking station view lists
+	+ Added functionality to backup save files before switching ships using KAC
+	+ Both these features are configurable
+	+ `KSP Version: 0.22`
 * 2014-0517: 2.6.1.0 (TriggerAU) for KSP 0.22
 	+ Recompiled it for 0.22
 	+ Added Crew Alarms (track Kerbal rather than Vessel)
