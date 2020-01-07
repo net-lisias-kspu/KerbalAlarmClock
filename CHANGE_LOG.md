@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1023: 3.0.0.9-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
+	+ Added options to cater to contract margins for auto alarms
+	+ Fixed NREs getting thown at Pause menu
+	+ Mostly fixed flickering science tips - if you have a dropdown in KAC displayed then they will flicker - but other wise all good - the error being thrown is actually in core game code so I cant catch it
 * 2014-1022: 3.0.0.8-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
 	+ Fixed window persistence across scenes (Issue #65)
 	+ Fixed Spelling mistakes for maneuver (Issue #64 )
