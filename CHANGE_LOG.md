@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.1.1.0 (TriggerAU) for KSP 0.20.2
+	+ Fixed issue with Pause alarms not slowing down warp first
+	+ `KSP Version: 0.20.2`
 * 2014-0517: 2.1.0.0 (TriggerAU) for KSP 0.20.2
 	+ Tweaked for 0.20.2
 	+ Added functionality to Store/Restore Vessel Targets for AN/DN Alarms
