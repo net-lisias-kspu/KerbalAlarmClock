@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0428: 3.3.0.0 (TriggerAU) for KSP 1.0.0
+	+ Recompiled for 1.0
+	+ Code changes for launcher and Armosphere changes
+	+ Updated KAC Wrapper
+	+ Fixed Date of Event displaying Date of Alarm (Fixes #126)
+	+ `KSP Version: 1.0`
 * 2015-0330: 3.2.4.0 (TriggerAU) for KSP 0.90
 	+ Fixed duplicate alarms with Auto and WarpTo (Issue #124)
 	+ Fixed log message with missing image (Issue #121)
