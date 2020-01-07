@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2018-0317: 3.9.0.0 (TriggerAU) for KSP 1.4.1
+	+ Recompiled for 1.4.1 (Issue #199, #199)
+	+ Fix alarm delete when no message displayed (Issue #195)
 * 2017-0530: 3.8.5.0 (TriggerAU) for KSP 1.3
 	+ Recompiled for 1.3.0 (Issue #191)
 	+ Merged in configurable tooltip period (Issue #190)
