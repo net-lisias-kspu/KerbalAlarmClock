@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0726: 2.7.8.0 (TriggerAU) for KSP 0.24.2
+	+ Download pulled due to bug
+	+ Compiled against 0.24.2 binaries
+	+ Fixed click through in KSC \* used InputLockManager and the ControlType of KSCFacilities (Fixes #45)
+	+ Added Transfer Windows type to SC Alarms (Fixes #46)
+	+ `KSP Version: 0.24.2`
 * 2014-0718: 2.7.7.0 (TriggerAU) for KSP 0.24.0
 	+ Compiled against 0.24 binaries
 	+ 4th attempt at texture blurring (Issue #33)
