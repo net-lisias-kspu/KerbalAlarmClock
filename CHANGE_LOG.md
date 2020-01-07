@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.6.3.0 (TriggerAU) for KSP 0.22
+	+ Tweaked functionality to for ship jumping and backups (now includes self closing alert dialog)
+	+ Added Functionality to SOI Auto Alamrs to allow ignoring EVA Kerbals for Auto Add Alarms
+	+ Added Functionality to Allow Auto Adding Maneuver Node Alarms
+	+ Fixed some case issues with a couple of image files
+	+ `KSP Version: 0.22`
 * 2014-0517: 2.6.2.0 (TriggerAU) for KSP 0.22
 	+ Added functionality to allow you to jump to a ship from space center and tracking station view lists
 	+ Added functionality to backup save files before switching ships using KAC
