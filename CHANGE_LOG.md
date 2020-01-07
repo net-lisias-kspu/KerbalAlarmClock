@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-0515: 3.6.2.0 (TriggerAU) for KSP 1.1
+	+ Fixed issue in TimeObjects for PhaseAngle display
+	+ `KSP Version: 1.1.2`
 * 2016-0425: 3.6.1.0 (TriggerAU) for KSP 1.1
 	+ Merged fork by jslater89 for conversion
 	+ Added code to handle HideUI
