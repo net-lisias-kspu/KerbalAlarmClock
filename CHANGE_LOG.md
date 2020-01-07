@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0728: 2.7.8.2 (TriggerAU) for KSP 0.24.2
+	+ Fixed issue with inputlocks not coming off sometimes (Fixes #48)
+	+ `KSP Version: 0.24.2`
 * 2014-0726: 2.7.8.1 (TriggerAU) for KSP 0.24.2
 	+ Fixed bug with Add alarm types ("!=" != "==") (Issue #47)
 	+ `KSP Version: 0.24.2`
