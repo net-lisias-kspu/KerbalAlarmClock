@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1027: 3.0.2.0 (TriggerAU) for KSP 0.25.0
+	+ Fixed issue where Alarm list was persisting between saves (Issue #67)
+	+ Added extra logging and null checks re AppLauncher
+	+ Updated KACWrapper to handle Alarmtime properly and add repeat properties
+	+ `KSP Version: 0.25.0`
 * 2014-1026: 3.0.1.0 (TriggerAU) for KSP 0.25.0
 	+ Rework of majority of code base
 	+ Ability to choose from 3 visual Skins
