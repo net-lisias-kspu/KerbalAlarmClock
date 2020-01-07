@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-0623: 3.7.0.0 (TriggerAU) for KSP 1.1
+	+ Recompiled to resolve isses with TimeWarp methods (Issue #169)
+	+ Moved Add All Transfers button to top of list (Issue #163)
+	+ Moved non GameDB files to PluginData folder (Issue #166)
+	+ NOTE: the above fix means the folder structure changes
+	+ `KSP Version: 1.1.3`
 * 2016-0523: 3.6.3.0 (TriggerAU) for KSP 1.1
 	+ Adjusted code to handle UIToggle and flight Pause menu
 	+ `KSP Version: 1.1.2`
