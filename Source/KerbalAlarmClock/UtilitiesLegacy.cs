@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using KSPPluginFramework;
 
 namespace KerbalAlarmClock
 {
     internal static class UtilitiesLegacy
     {
+		// FIXME: Boy this stunt is ugly. How to normalize it under KSPe?
+		private static readonly String PathTriggerTech = System.IO.Path.Combine(KSPUtil.ApplicationRootPath, "GameData/TriggerTech");
 
-        internal static Boolean Loadv2Alarms(out String LoadMessage, out KACAlarmList oldAlarms)
+		internal static Boolean Loadv2Alarms(out String LoadMessage, out KACAlarmList oldAlarms)
         {
             oldAlarms = new KACAlarmList();
             Boolean blnReturn = false;
@@ -18,7 +19,7 @@ namespace KerbalAlarmClock
             try
             {
                 //Find old files
-                String[] AlarmFiles = System.IO.Directory.GetFiles(KACUtils.PathTriggerTech, "Alarms-*.txt", System.IO.SearchOption.AllDirectories);
+                String[] AlarmFiles = System.IO.Directory.GetFiles(PathTriggerTech, "Alarms-*.txt", System.IO.SearchOption.AllDirectories);
                 String FileToLoad = "";
                 foreach (String item in AlarmFiles)
                 {
