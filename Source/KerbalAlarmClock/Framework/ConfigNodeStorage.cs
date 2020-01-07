@@ -7,6 +7,8 @@ License: The MIT License (MIT)
 */
 using System;
 
+using Log = KerbalAlarmClock.Log;
+
 namespace KSPPluginFramework
 { 
     public abstract class ConfigNodeStorage : IPersistenceLoad, IPersistenceSave
@@ -105,7 +107,7 @@ namespace KSPPluginFramework
             Boolean blnReturn = false;
             try
             {
-                LogFormatted_DebugOnly("Loading ConfigNode");
+                Log.dbg("Loading ConfigNode");
                 if (FileExists)
                 {
                     //Load the file into a config node
@@ -118,15 +120,16 @@ namespace KSPPluginFramework
                 }
                 else
                 {
-                    LogFormatted("File could not be found to load({0})", fileFullName);
+                    Log.warn("File could not be found to load({0})", fileFullName);
                     blnReturn = false;
                 }
             }
             catch (Exception ex)
             {
-                LogFormatted("Failed to Load ConfigNode from file({0})-Error:{1}", fileFullName, ex.Message);
-                LogFormatted("Storing old config - {0}", fileFullName + ".err-" + string.Format("ddMMyyyy-HHmmss", DateTime.Now));
-                System.IO.File.Copy(fileFullName, fileFullName + ".err-" + string.Format("ddMMyyyy-HHmmss", DateTime.Now),true);
+                Log.error(ex, "Failed to Load ConfigNode from file({0})", fileFullName);
+				string emergencyFilename =  String.Format("{0}.err-{1}", fileFullName, string.Format("ddMMyyyy-HHmmss", DateTime.Now));
+				Log.warn("Storing old config - {0}", emergencyFilename);
+                System.IO.File.Copy(fileFullName, emergencyFilename,true);
                 blnReturn = false;
             }
             return blnReturn;
@@ -138,7 +141,7 @@ namespace KSPPluginFramework
         /// <returns>Succes of Save</returns>
         public Boolean Save()
         {
-            LogFormatted_DebugOnly("Saving ConfigNode");
+            Log.dbg("Saving ConfigNode");
             return this.Save(FilePath);
         }
 
@@ -159,7 +162,7 @@ namespace KSPPluginFramework
             }
             catch (Exception ex)
             {
-                LogFormatted("Unable to create directory for ConfigNode file({0})-Error:{1}", fileFullName, ex.Message);
+                Log.error(ex, "Unable to create directory for ConfigNode file({0})", fileFullName);
                 blnReturn = false;
             }
 
@@ -176,7 +179,7 @@ namespace KSPPluginFramework
             }
             catch (Exception ex)
             {
-                LogFormatted("Failed to Save ConfigNode to file({0})-Error:{1}", fileFullName, ex.Message);
+                Log.error(ex, "Failed to Save ConfigNode to file({0})", fileFullName);
                 blnReturn = false;
             }
             return blnReturn;
@@ -199,7 +202,7 @@ namespace KSPPluginFramework
                 }
                 catch (Exception ex)
                 {
-                    LogFormatted("Failed to generate ConfigNode-Error;{0}", ex.Message);
+                    Log.error(ex, "Failed to generate ConfigNode");
                     //Logging and return value?                    
                     return new ConfigNode(this.GetType().Name);
                 }
@@ -227,34 +230,6 @@ namespace KSPPluginFramework
         { get { return System.IO.Path.GetDirectoryName(_AssemblyLocation); } }
 
         #endregion  
-
-        #region Logging
-        /// <summary>
-        /// Some Structured logging to the debug file - ONLY RUNS WHEN DLL COMPILED IN DEBUG MODE
-        /// </summary>
-        /// <param name="Message">Text to be printed - can be formatted as per String.format</param>
-        /// <param name="strParams">Objects to feed into a String.format</param>
-        [System.Diagnostics.Conditional("DEBUG")]
-        internal static void LogFormatted_DebugOnly(String Message, params object[] strParams)
-        {
-            LogFormatted("DEBUG: " + Message, strParams);
-        }
-
-        /// <summary>
-        /// Some Structured logging to the debug file
-        /// </summary>
-        /// <param name="Message">Text to be printed - can be formatted as per String.format</param>
-        /// <param name="strParams">Objects to feed into a String.format</param>
-        internal static void LogFormatted(String Message, params object[] strParams)
-        {
-            Message = String.Format(Message, strParams);                  // This fills the params into the message
-            String strMessageLine = String.Format("{0},{2},{1}",
-                DateTime.Now, Message,
-                _AssemblyName);                                           // This adds our standardised wrapper to each line
-            UnityEngine.Debug.Log(strMessageLine);                        // And this puts it in the log
-        }
-
-        #endregion
 
     }
 }

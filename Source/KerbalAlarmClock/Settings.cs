@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using KSPPluginFramework;
 
+using Log = KerbalAlarmClock.Log;
+
 namespace KerbalAlarmClock
 {
     internal class Settings : ConfigNodeStorage
@@ -614,7 +616,7 @@ namespace KerbalAlarmClock
         private Boolean AddMissingSoundConfig(String Name, params KACAlarm.AlarmTypeEnum[] Types)
         {
             if (!AlarmSounds.Any(s=>s.Name==Name)){
-                LogFormatted("Initing Sound Config for:{0}", Name);
+                Log.detail("Initing Sound Config for:{0}", Name);
                 AlarmSounds.Add(new AlarmSound(Name,Types));
                 return true;
             }
