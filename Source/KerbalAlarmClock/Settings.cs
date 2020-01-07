@@ -13,8 +13,8 @@ namespace KerbalAlarmClock
 {
     internal class Settings : ConfigNodeStorage
     {
-        internal Settings(String FilePath)
-            : base(FilePath)
+        internal Settings()
+            : base()
         {
             Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             //on each start set the attention flag to the property - should be on each program start

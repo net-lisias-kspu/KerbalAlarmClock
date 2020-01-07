@@ -8,6 +8,7 @@ License: The MIT License (MIT)
 using System;
 
 using Log = KerbalAlarmClock.Log;
+using Data = KSPe.IO.Data<KerbalAlarmClock.KerbalAlarmClock>;
 
 namespace KSPPluginFramework
 { 
@@ -17,39 +18,12 @@ namespace KSPPluginFramework
         /// <summary>
         /// Class Constructor
         /// </summary>
-        public ConfigNodeStorage() { }
-        /// <summary>
-        /// Class Constructor
-        /// </summary>
-        /// <param name="FilePath">Set the path for saving and loading. This can be an absolute path (eg c:\test.cfg) or a relative path from the location of the assembly dll (eg. ../config/test)</param>
-        public ConfigNodeStorage(String FilePath) { this.FilePath = FilePath; }
+        public ConfigNodeStorage() {
+			this.configNode = Data.ConfigNode.For(this.GetType().Name);
+		}
         #endregion
 
-        #region Properties
-        private String _FilePath;
-        /// <summary>
-        /// Location of file for saving and loading methods
-        /// 
-        /// This can be an absolute path (eg c:\test.cfg) or a relative path from the location of the assembly dll (eg. ../config/test)
-        /// </summary>
-        public String FilePath
-        {
-            get { return _FilePath; }
-            set
-            {
-                //Combine the Location of the assembly and the provided string. This means we can use relative or absolute paths
-                _FilePath = System.IO.Path.Combine(_AssemblyFolder, value).Replace("\\","/");
-            }
-        }
-
-        /// <summary>
-        /// Gets the filename portion of the FullPath
-        /// </summary>
-        public String FileName
-        {
-            get { return System.IO.Path.GetFileName(FilePath); }
-        }
-        #endregion
+		private Data.ConfigNode configNode;
 
         #region Interface Methods
         /// <summary>
@@ -68,11 +42,11 @@ namespace KSPPluginFramework
         }
 
         /// <summary>
-        /// This overridable function executes whenever the object is loaded from a config node structure. Use this for complex classes that need decoding from simple confignode values
+        /// This overridable function executes whenever the object is loaded from a config node structure. Use this for complex classes that need decoding from simple Data.ConfigNode values
         /// </summary>
         public virtual void OnDecodeFromConfigNode() { }
         /// <summary>
-        /// This overridable function executes whenever the object is encoded to a config node structure. Use this for complex classes that need encoding into simple confignode values
+        /// This overridable function executes whenever the object is encoded to a config node structure. Use this for complex classes that need encoding into simple Data.ConfigNode values
         /// </summary>
         public virtual void OnEncodeToConfigNode() { }
         #endregion
@@ -85,108 +59,78 @@ namespace KSPPluginFramework
         {
             get
             {
-                return System.IO.File.Exists(FilePath);
+                return this.configNode.IsLoadable;
             }
         }
     
         /// <summary>
-        /// Loads the object from the ConfigNode structure in the previously supplied file
+        /// Loads the object from the Data.ConfigNode structure in the previously supplied file
         /// </summary>
         /// <returns>Succes of Load</returns>
         public Boolean Load()
         {
-            return this.Load(FilePath);
-        }
-        /// <summary>
-        /// Loads the object from the ConfigNode structure in a file
-        /// </summary>
-        /// <param name="fileFullName">Absolute Path to the file to load the ConfigNode structure from</param> 
-        /// <returns>Success of Load</returns>
-        public Boolean Load(String fileFullName)
-        {
-            Boolean blnReturn = false;
+			Log.dbg("Loading Data.ConfigNode");
+
+			Boolean blnReturn = false;
             try
             {
-                Log.dbg("Loading ConfigNode");
                 if (FileExists)
                 {
                     //Load the file into a config node
-                    ConfigNode cnToLoad = ConfigNode.Load(fileFullName);
-                    //remove the wrapper node that names the class stored
-                    ConfigNode cnUnwrapped = cnToLoad.GetNode(this.GetType().Name);
-                    //plug it in to the object
-                    ConfigNode.LoadObjectFromConfig(this, cnUnwrapped);
+                    this.configNode.Load();
+					//plug it in to the object
+					ConfigNode.LoadObjectFromConfig(this, this.configNode.Node);
                     blnReturn = true;
                 }
                 else
                 {
-                    Log.warn("File could not be found to load({0})", fileFullName);
+                    Log.warn("File could not be found to load({0})", this.configNode.Path);
                     blnReturn = false;
                 }
             }
             catch (Exception ex)
             {
-                Log.error(ex, "Failed to Load ConfigNode from file({0})", fileFullName);
-				string emergencyFilename =  String.Format("{0}.err-{1}", fileFullName, string.Format("ddMMyyyy-HHmmss", DateTime.Now));
+                Log.error(ex, "Failed to Load Data.ConfigNode from file({0})", this.configNode.Path);
+				string emergencyFilename =  String.Format("{0}.err-{1}", this.configNode.Path, string.Format("ddMMyyyy-HHmmss", DateTime.Now));
 				Log.warn("Storing old config - {0}", emergencyFilename);
-                System.IO.File.Copy(fileFullName, emergencyFilename,true);
+                System.IO.File.Copy(this.configNode.Path, emergencyFilename, true);
                 blnReturn = false;
             }
             return blnReturn;
         }
 
         /// <summary>
-        /// Saves the object to a ConfigNode structure in the previously supplied file
+        /// Saves the object to a Data.ConfigNode structure in the previously supplied file
         /// </summary>
         /// <returns>Succes of Save</returns>
         public Boolean Save()
         {
-            Log.dbg("Saving ConfigNode");
-            return this.Save(FilePath);
-        }
+            Log.dbg("Saving Data.ConfigNode");
 
-        /// <summary>
-        /// Saves the object to a ConfigNode structure in a file
-        /// </summary>
-        /// <param name="fileFullName">Absolute Path to the file to load the ConfigNode structure from</param> 
-        /// <returns>Success of Save</returns>
-        public Boolean Save(String fileFullName)
-        {
             Boolean blnReturn = false;
-            try
-            {
-                if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(fileFullName)))
-                {
-                    System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fileFullName));
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.error(ex, "Unable to create directory for ConfigNode file({0})", fileFullName);
-                blnReturn = false;
-            }
-
             try
             {
                 //Encode the current object
                 ConfigNode cnToSave = this.AsConfigNode;
-                //Wrap it in a node with a name of the class
-                ConfigNode cnSaveWrapper = new ConfigNode(this.GetType().Name);
-                cnSaveWrapper.AddNode(cnToSave);
-                //Save it to the file
-                cnSaveWrapper.Save(fileFullName);
+
+				//Wrap it in a node with a name of the class
+				ConfigNode cnSaveWrapper = new ConfigNode(this.GetType().Name);
+				cnSaveWrapper.AddNode(cnToSave);
+
+				//Save it to the file
+				this.configNode.Save(cnSaveWrapper);
                 blnReturn = true;
             }
             catch (Exception ex)
             {
-                Log.error(ex, "Failed to Save ConfigNode to file({0})", fileFullName);
+                Log.error(ex, "Failed to Save ConfigNode to file({0})", this.configNode.Path);
                 blnReturn = false;
             }
             return blnReturn;
         }
 
         /// <summary>
-        /// Returns the current object as a ConfigNode
+        /// Returns the current object as a Data.ConfigNode
         /// </summary>
         public ConfigNode AsConfigNode
         {
@@ -202,7 +146,7 @@ namespace KSPPluginFramework
                 }
                 catch (Exception ex)
                 {
-                    Log.error(ex, "Failed to generate ConfigNode");
+                    Log.error(ex, "Failed to generate Data.ConfigNode");
                     //Logging and return value?                    
                     return new ConfigNode(this.GetType().Name);
                 }
