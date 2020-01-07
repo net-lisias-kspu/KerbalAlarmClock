@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.3.5.1 (TriggerAU) for KSP 0.19.1
+	+ New Documentation Site link
+	+ Tidied up a minor GUI layout or two
+	+ `KSP Version: 0.19.1`
 * 2014-0517: 1.3.5.0 (TriggerAU) for KSP 0.19.1
 	+ Added functionality to alarm windows to Delete on Close
 	+ Added Default Settings for Alarm Action, Margin Period and Delete on Close
