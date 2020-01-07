@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1031: 3.0.3.0 (TriggerAU) for KSP 0.25.0
+```
+```
 * 2014-1027: 3.0.2.0 (TriggerAU) for KSP 0.25.0
 	+ Fixed issue where Alarm list was persisting between saves (Issue #67)
 	+ Added extra logging and null checks re AppLauncher
