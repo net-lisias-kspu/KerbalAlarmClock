@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-0425: 3.6.1.0 (TriggerAU) for KSP 1.1
+	+ Merged fork by jslater89 for conversion
+	+ Added code to handle HideUI
+	+ `KSP Version: 1.1.0`
 * 2015-1202: 3.5.0.0 (TriggerAU) for KSP 1.0.5
 	+ Fixed issue with dropdown pages and alignment
 	+ Fixed issue with settings bleed (Issue #152)
