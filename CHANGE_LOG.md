@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0714: 2.7.6.1 (TriggerAU) for KSP 0.23.5
+	+ Reversed changed of Images to TGA \* Back to PNGs (Issue #33)
+	+ `KSP Version: 0.23.5`
 * 2014-0712: 2.7.6.0 (TriggerAU) for KSP 0.23.5
 	+ Change ability to Jump to Asteroid to be an Option \* default is disabled (Issue #37)
 	+ Fixed issue with Time Margin Entry and putting in large numbers (Issue #36)
