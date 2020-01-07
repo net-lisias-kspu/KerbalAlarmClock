@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0625: 2.7.5.0 (TriggerAU) for KSP 0.23.5
+	+ Tweaked Update check to be on a background worker process (Issue #28)
+	+ Added capability to add certain alarm types to SC and TS Scenes (Issue #24)
+	+ Added list icons for Raw and Earth alarms (Issue #29)
+	+ License Changed to MIT license (less restrictive than previous)
+	+ `KSP Version: 0.23.5`
 * 2014-0609: 2.7.4.0 (TriggerAU) for KSP 0.23.5
 	+ Removed log message on periodic saves (Issue #25)
 	+ Window height now adjusts for Multiline Alarms (Issue #15)
