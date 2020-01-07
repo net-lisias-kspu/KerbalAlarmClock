@@ -1,5 +1,13 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.3.0.0 (TriggerAU) for KSP 0.20.2
+	+ Added alarms for "Earth" Universe
+	+ Added alarms for closest distance between vessels \* using some of r4m0n's timeToClosestApproach function from MechJeb 1.9.8 under GPLv3.0
+	+ Combined Ap/PE and AN/DN alarm buttons to get some more room
+	+ Restructured Save File for future improvements
+	+ Fixed issue with alarms refiring on vessel changes
+	+ Reverted the texture loading to be via KSP.IO to remove compression artifacts from GUI
+	+ `KSP Version: 0.20.2`
 * 2014-0517: 2.1.2.0 (TriggerAU) for KSP 0.20.2
 	+ Verified year calcs
 	+ Adjusted Date Entry for Raw alarms and date displays to show Year 1, Day 1 based stuff so the clocks in tracking station, etc and the alarms all match display wise. Also means you can now create an alarm using the dates from external apps like the transfer pork chops without doing maths
