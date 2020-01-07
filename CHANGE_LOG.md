@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.6.4.0 (TriggerAU) for KSP 0.22
+	+ Added a threshold for Auto adding Maneuver Node alarms, so if you are closer than the threshold it wont make an alarm
+	+ Added capacity to Kerbal alarms to store and restore targets and maneuvers regardless of vessel
+	+ Fixed Alarm Icon in non Flight Scenes showing warp indicator
+	+ Fixed some non-persistant settings in last few updates
+	+ `KSP Version: 0.22`
 * 2014-0517: 2.6.3.0 (TriggerAU) for KSP 0.22
 	+ Tweaked functionality to for ship jumping and backups (now includes self closing alert dialog)
 	+ Added Functionality to SOI Auto Alamrs to allow ignoring EVA Kerbals for Auto Add Alarms
