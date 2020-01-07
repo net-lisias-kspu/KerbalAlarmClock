@@ -1,5 +1,13 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.1.0.0 (TriggerAU) for KSP 0.20.2
+	+ Tweaked for 0.20.2
+	+ Added functionality to Store/Restore Vessel Targets for AN/DN Alarms
+	+ Expanded Store/Restore of Maneuver Nodes to include a list of all nodes from time of alarm
+	+ Resolved an issue with the SOI recalc code that was resetting all SOI Alarms to one time
+	+ Restored the "Jump and Restore" functionality that stopped working in 0.20
+	+ Improved the Save/Load routines to compartmentalise them
+	+ `KSP Version: 0.20.2`
 * 2014-0517: 2.0.0.0 (TriggerAU) for KSP 0.20
 	+ Rebuild and rewrite for 0.20 Game Database Loading Structure
 	+ Also fixes for \* only recalc alarms when under Physwarp or nowarp \* stops creep at high warp
