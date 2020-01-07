@@ -1,5 +1,25 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0928: 3.0.0.2-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
+	+ Ability to choose from 3 visual Skins
+	+ Alarm Saving - now in the games save file - only saves and loads on game/save and load
+	+ QuickAdd option for contextual Alarms
+	+ QuickAdd and Warp option
+	+ Added Kill Warp with No Message action and restructured buttons/code behind
+	+ Adjusted settings tabs to better layout options
+	+ API for Alarm Creation/Modification and events
+	+ App Launcher integration - this is now the default
+	+ Has input locking options for when mouse is over the panels - this prevents action groups from occuring when mouse is over windows
+	+ New Common Toolbar Wrapper - official one
+	+ Removed periodic save of alarms file now that alarms are in the save files
+	+ Screen clamping on main window
+	+ Sorted the multiline alarm display stuff
+	+ Window Resizing for better display
+	+ Font changes to make more readable
+	+ F11 keystroke disabled - can be reenabled via settings value
+	+ Restructure settings
+	+ Restructure plugin folders
+	+ `KSP Version: 0.24.2`
 * 2014-1010: 2.7.9.0 (TriggerAU) for KSP 0.25
 	+ Recompiled for 0.25
 	+ Image size optimisation thanks to dak180
