@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0930: 3.0.0.3-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
+	+ Error in release - please use this one instead -
+	+ https://github.com/TriggerAu/KerbalAlarmClock/releases/tag/v3.0.0.4-beta
 * 2014-0928: 3.0.0.2-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
 	+ Ability to choose from 3 visual Skins
 	+ Alarm Saving - now in the games save file - only saves and loads on game/save and load
