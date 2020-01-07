@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.2.0.1 (TriggerAU) for KSP 0.18.4
+	+ Resolved a few more GUI Issues
+	+ `KSP Version: 0.18.4`
 * 2014-0517: 1.2.0.0 (TriggerAU) for KSP 0.18.4
 	+ Resolved a few more GUI Issues
 	+ Added Web update check
