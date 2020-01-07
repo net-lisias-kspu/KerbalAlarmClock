@@ -1,5 +1,12 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1021: 3.0.0.7-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
+	+ Fixed QuickAdd Issues with AP/PE Alarms
+	+ Fixed some API issues with events causing 0'd times and v2 KAC
+	+ Lastly added Contract Alarms with the below features
+		- Manual Add via Add Button
+		- Auto Add Next Expiring Offer and/or Next Active Deadline
+		- Auto Add All Expiring Offers and/or All Active Deadline
 * 2014-1017: 3.0.0.6-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
 	+ Redid references and recomiled to fix missing TS App Launcher Icon
 * 2014-1016: 3.0.0.5-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
