@@ -1,5 +1,12 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0609: 2.7.4.0 (TriggerAU) for KSP 0.23.5
+	+ Removed log message on periodic saves (Issue #25)
+	+ Window height now adjusts for Multiline Alarms (Issue #15)
+	+ Closest Approach Alarms now allow target of Docking Port (Issue #1)
+	+ Fixed duplication of Manuever Nodes on Ship Jump (Issue #23)
+	+ Changed latest version file source to be Google site (smaller file)
+	+ `KSP Version: 0.23.5`
 * 2014-0517: 2.7.3.0 (TriggerAU) for KSP 0.23.5
 	+ Fixed the pesky bug with the auto alarm periods not saving
 	+ `KSP Version: 0.23.5`
