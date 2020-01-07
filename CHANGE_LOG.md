@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1031: 3.0.4.0 (TriggerAU) for KSP 0.25.0
+	+ Fixed tooltip typos (Issue #68)
+	+ Fixed error on load of empty alarm block
+	+ Fixed issues with jumping from paused alarms at SC
+	+ Fixed versioncheck file
+	+ `KSP Version: 0.25.0`
 * 2014-1031: 3.0.3.0 (TriggerAU) for KSP 0.25.0
 ```
 ```
