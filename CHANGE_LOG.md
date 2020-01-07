@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0109: 3.2.0.0 (TriggerAU) for KSP 0.90
+	+ Added Window Width Resizing via Mouse (Issue #102)
+	+ Added WarpToNode Feature for MapView (Issue #98)
+	+ Made Warp Kill via X the default behaviour (Issue #101)
+	+ Added some code to fix Control Layout Errors (Issue #99)
+	+ `KSP Version: 0.90`
 * 2015-0101: 3.1.2.0 (TriggerAU) for KSP 0.90
 	+ Updated default button state for app button (Issue #97)
 	+ Fixed issue with "date" alarms not using epoch (Issue #96)
