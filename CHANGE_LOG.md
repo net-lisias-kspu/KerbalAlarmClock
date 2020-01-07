@@ -1,5 +1,12 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0521: 3.3.2.1 (TriggerAU) for KSP 1.0.2
+	+ Added KER Wrapper/Integration to provide BurnTime based margins (Issue #14)
+	+ Fixed issue with editing Automatic ManNode Margins (Issue #135)
+	+ Merged Fix re GUISkin and other plugins from mjn33 (Issue #133)
+	+ Merged typo fix from Dennovin (Issue #119)
+	+ (.1 because ) Missed an if statement
+	+ `KSP Version: 1.0.2`
 * 2015-0521: 3.3.2.0 (TriggerAU) for KSP 1.0.2
 	+ Added KER Wrapper/Integration to provide BurnTime based margins (Issue #14)
 	+ Fixed issue with editing Automatic ManNode Margins (Issue #135)
