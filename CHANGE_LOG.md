@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.3.0.0 (TriggerAU) for KSP 0.18.4
+	+ Added storing and retreiving the maneuver node tied to an alarm
+	+ Added ability to jump to the ship that the alarm was created on
+	+ Add flight path SOI detection and alarm creation \* when enabled will automatically create alarms for SOI changes and then adjust and maintain them for you
+	+ Separated alarm storage from main config file \* now a file per save game
+	+ `KSP Version: 0.18.4`
 * 2014-0517: 1.2.0.1 (TriggerAU) for KSP 0.18.4
 	+ Resolved a few more GUI Issues
 	+ `KSP Version: 0.18.4`
