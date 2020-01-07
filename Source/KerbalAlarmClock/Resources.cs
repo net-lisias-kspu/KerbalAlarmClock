@@ -540,63 +540,72 @@ namespace KerbalAlarmClock
         //Alarm Library
         internal static Dictionary<String, AudioClip> clipAlarms;
 
-        internal static void LoadSounds()
+		private static readonly string DEFAULT_PATH = GameDB.Solve(KACUtils.PathSounds);
+		private static bool IsDefaultSounds(AudioClip clip)
+		{
+			return clip.name.StartsWith(DEFAULT_PATH);
+		}
+		internal static void LoadDefaultSounds()
         {
-            Log.dbg("Loading Sounds");
+            Log.dbg("Loading Default Sounds");
 
             clipAlarms = new Dictionary<string, AudioClip>();
             clipAlarms.Add("None", null);
-            if (Directory.Exists(KACUtils.PathPluginSounds))
-            {
-                //get all the png and tga's
-                FileInfo[] fileClips = new System.IO.DirectoryInfo(KACUtils.PathPluginSounds).GetFiles("*.wav");
 
-                foreach (FileInfo fileClip in fileClips)
-                {
-                    try
-                    {
-                        //load the file from the GameDB
-                        AudioClip clipLoading = null;
-                        if (LoadAudioClipFromGameDB(ref clipLoading, fileClip.Name))
-                        {
-                            String ClipKey = fileClip.Name;
-                            if (ClipKey.ToLower().EndsWith(".wav"))
-                                ClipKey = ClipKey.Substring(0, ClipKey.Length - 4);
-                            clipAlarms.Add(ClipKey, clipLoading);
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        //Log.dbg("Unable to load AudioClip from GameDB:{0}/{1}", PathPluginSounds,fileClip.Name);
-                    }
-                }
-            }
+			LoadTheseSounds(IsDefaultSounds);
+		}
 
-        }
+		private static readonly string CUSTOM_PATH = "__LOCAL/" + DEFAULT_PATH;
+		private static bool IsCustomSounds(AudioClip clip)
+		{
+			Log.dbg("Probing {0}", clip.name);
+			return clip.name.StartsWith(CUSTOM_PATH);
+		}
+		internal static void LoadCustomSounds()
+		{
+			Log.dbg("Loading Custom Sounds");
+			LoadTheseSounds(IsCustomSounds);
+		}
 
-        internal static Boolean LoadAudioClipFromGameDB(ref AudioClip clip, String FileName, String FolderPath = "")
+		private static void LoadTheseSounds(Predicate<AudioClip> predicate)
+		{
+			foreach (AudioClip audioClip in GameDatabase.Instance.databaseAudio.FindAll(predicate))
+			{
+				try
+				{
+					//load the file from the GameDB
+					AudioClip clipLoading = null;
+					if (LoadAudioClipFromGameDB(ref clipLoading, audioClip.name))
+					{
+						string name = audioClip.name.Substring(1 + audioClip.name.LastIndexOf("/"));
+						clipAlarms.Add(name, clipLoading);
+					}
+				}
+				catch (Exception e)
+				{
+					Log.error(e, "Unable to load AudioClip from GameDB:{0}", audioClip.name);
+				}
+			}
+		}
+
+		internal static Boolean LoadAudioClipFromGameDB(ref AudioClip clip, String clipName)
         {
-            Boolean blnReturn = false;
-            try
+			Log.dbg("Trying to load sound {0}", clipName);
+			try
             {
-                //trim off the tga and png extensions
-                if (FileName.ToLower().EndsWith(".wav")) FileName = FileName.Substring(0, FileName.Length - 4);
-                //default folder
-                if (FolderPath == "") FolderPath = KACUtils.DBPathPluginSounds;
-
                 //Look for case mismatches
-                if (!GameDatabase.Instance.ExistsAudioClip(String.Format("{0}/{1}", FolderPath, FileName)))
+                if (!GameDatabase.Instance.ExistsAudioClip(clipName))
                     throw new Exception();
 
                 //now load it
-                clip = GameDatabase.Instance.GetAudioClip(String.Format("{0}/{1}", FolderPath, FileName));
-                blnReturn = true;
+                clip = GameDatabase.Instance.GetAudioClip(clipName);
+                return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Log.dbg("Failed to load (are you missing a file - and check case):{0}/{1}", FolderPath, FileName);
+                Log.error(e, "Failed to load (are you missing a file - and check case):{0}", clipName);
             }
-            return blnReturn;
+            return false;
         }
 
 

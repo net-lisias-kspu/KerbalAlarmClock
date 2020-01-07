@@ -159,7 +159,8 @@ namespace KerbalAlarmClock
 					settings.XferModelDataLoaded = KACResources.LoadModelPoints();
 
 			//get the sounds and set things up
-			KACResources.LoadSounds();
+			KACResources.LoadDefaultSounds();
+			KACResources.LoadCustomSounds();
 			this.ConfigSoundsDDLs();
 			InitAudio();
 
