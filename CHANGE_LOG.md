@@ -1,5 +1,14 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0330: 3.2.4.0 (TriggerAU) for KSP 0.90
+	+ Fixed duplicate alarms with Auto and WarpTo (Issue #124)
+	+ Fixed log message with missing image (Issue #121)
+	+ Enabled KAC in Editor Scenes (Issue #120)
+	+ Fixed issue woth Alarm clock opening on every scene (Issue #118)
+	+ Added option to limit Warp rate for WarpTo Alarms (Issue #117)
+	+ Fixed placement issue with Minimized mode (Issue #116)
+	+ Fixed missing confirmation on delete on minimized window (Issue #115)
+	+ `KSP Version: 0.90`
 * 2015-0119: 3.2.3.0 (TriggerAU) for KSP 0.90
 	+ Changed WarpTo buttons to only respond to left-click (Issue #112)
 	+ Added Confirmation option to WarpTo Buttons (Issue #111)
