@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-1012: 3.8.0.0 (TriggerAU) for KSP 1.2
+	+ Code changes and recompile for 1.2 - Thanks Nightingale and JPLRepo
+	+ Added ScienceLab Alarms - Thanks natsnudasoft
+	+ Adjusted Time code for in Editor - Thanks aw1621107
+	+ `KSP Version: 1.2.0`
 * 2016-0624: 3.7.1.0 (TriggerAU) for KSP 1.1
 	+ Fixed issue with location of ToolbarIcon folder - my bad
 	+ Fixed NRE when PauseMenu is not yet available to query (Issue #164)
