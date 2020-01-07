@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1229: 3.1.1.0 (TriggerAU) for KSP 0.90
+	+ Fixed issue with Contract alarms disappearing on scene change (Issue #92)
+	+ Added feature to swap the child windows to the left side if the KAC is near the right screen edge (Issue #94)
+	+ `KSP Version: 0.90`
 * 2014-1227: 3.1.0.0 (TriggerAU) for KSP 0.90
 	+ Added option so when you hit the throttle cutoff ("X" by default) it will also kill warp (Issue #85)
 	+ Added "No Action" Action options (Issue #80)
