@@ -1,5 +1,16 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.4.0.1 (TriggerAU) for KSP 0.20.2
+	+ Changed AN/DN code to use Mechjeb style ones to correct for my lack of math skills
+	+ Changed AN/DN Add so if there is no target it displays the equatorial AN/DN times
+	+ Adjusted Future orbits code to fix rounding issues
+	+ Added capacity to edit the frequency of checks \* people can now tweak this for their system and helps prevent severe warp changes that can affect vesel orbits
+	+ Adjusted delete alarm on close code so alarm did not reappear
+	+ Fixed time display setting not persisting
+	+ Sorted out Earth alarms not updating when paused
+	+ Fixed Line wrapping on Add Alarm window (still need to work out the right answer for the main window)
+	+ Some other Graphical tweaks
+	+ `KSP Version: 0.20.2`
 * 2014-0517: 2.3.0.0 (TriggerAU) for KSP 0.20.2
 	+ Added alarms for "Earth" Universe
 	+ Added alarms for closest distance between vessels \* using some of r4m0n's timeToClosestApproach function from MechJeb 1.9.8 under GPLv3.0
