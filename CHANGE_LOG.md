@@ -1,5 +1,13 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1119: 3.0.5.0 (TriggerAU) for KSP 0.25.0
+	+ Added extra warp rate calcs for non standard values (Issue #71)
+	+ Added slider to configure weighting of transition periods
+	+ Added some instant transition fallbacks if alarm is too close to the game UT (Issue #72)
+	+ Fixed issue with Contract alarms in sandbox mode (Issue #78)
+	+ Fixed issue with warp fighting when GUI not displayed (Issue #76)
+	+ Double checked all input lock code
+	+ `KSP Version: 0.25.0`
 * 2014-1031: 3.0.4.0 (TriggerAU) for KSP 0.25.0
 	+ Fixed tooltip typos (Issue #68)
 	+ Fixed error on load of empty alarm block
