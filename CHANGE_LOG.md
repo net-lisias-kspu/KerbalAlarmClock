@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0428: 3.3.0.1 (TriggerAU) for KSP 1.0.0
+	+ KerbalStuff Release Issue - no code changes
+	+ `KSP Version: 1.0`
 * 2015-0428: 3.3.0.0 (TriggerAU) for KSP 1.0.0
 	+ Recompiled for 1.0
 	+ Code changes for launcher and Armosphere changes
