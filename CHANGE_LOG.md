@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2018-0325: 3.9.1.0 (TriggerAU) for KSP 1.4.1
+	+ Removed custom cursors for users running Linux as this kills the game cursor for them (Issue #200)
+```
 * 2018-0317: 3.9.0.0 (TriggerAU) for KSP 1.4.1
 	+ Recompiled for 1.4.1 (Issue #199, #199)
 	+ Fix alarm delete when no message displayed (Issue #195)
