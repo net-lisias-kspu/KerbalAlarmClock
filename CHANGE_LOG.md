@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0109: 3.2.1.0 (TriggerAU) for KSP 0.90
+	+ Added check to not display WarpTo when vessel is landed
+	+ `KSP Version: 0.90`
 * 2015-0109: 3.2.0.0 (TriggerAU) for KSP 0.90
 	+ Added Window Width Resizing via Mouse (Issue #102)
 	+ Added WarpToNode Feature for MapView (Issue #98)
