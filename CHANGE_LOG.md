@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.4.0.3 (TriggerAU) for KSP 0.19.1
+	+ Minor changes to facilitate Linux paths and case sensitivity
+	+ `KSP Version: 0.19.1`
 * 2014-0517: 1.4.0.2 (TriggerAU) for KSP 0.19.1
 	+ Changed resource loading method to use direct file access \* prevents some peoples issues with timeouts
 	+ Added new Add Alarm window format \* big change...
