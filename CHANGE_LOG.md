@@ -1,5 +1,12 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.0.0.0 (TriggerAU) for KSP 0.20
+	+ Rebuild and rewrite for 0.20 Game Database Loading Structure
+	+ Also fixes for \* only recalc alarms when under Physwarp or nowarp \* stops creep at high warp
+	+ Reset Defaults for autocalc to prevent creep
+	+ Reset Defaults for Transfer Mode
+	+ Added position of icon to config.xml so people can move it around as needed
+	+ `KSP Version: 0.20`
 * 2014-0517: 1.4.1.0 (TriggerAU) for KSP 0.20
 	+ Recompile and minor changes to package structure to facilitate 0.20 Legacy Mode
 	+ `KSP Version: 0.20`
