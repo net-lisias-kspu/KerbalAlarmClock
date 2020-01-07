@@ -322,7 +322,7 @@ namespace KerbalAlarmClock
                     //GUI.Label(new Rect(152,32,200,20), GUI.tooltip,KACResources.styleTooltipStyle);
                 }
             }
-        }
+			}
             else if (btnToolbarKAC != null) { 
             //{
                 //Do for Blizzies Toolbar

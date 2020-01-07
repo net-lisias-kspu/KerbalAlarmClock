@@ -10,7 +10,6 @@ namespace KerbalAlarmClock
     internal static class UtilitiesLegacy
     {
 
-
         internal static Boolean Loadv2Alarms(out String LoadMessage, out KACAlarmList oldAlarms)
         {
             oldAlarms = new KACAlarmList();

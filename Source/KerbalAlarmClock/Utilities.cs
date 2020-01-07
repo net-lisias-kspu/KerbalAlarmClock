@@ -18,7 +18,7 @@ namespace KerbalAlarmClock
 		// TODO: Get rid of this stunt. Try to use S.A.V.E. as a library?
 		private static readonly string SavePath = string.Format("{0}saves/{1}", KSPUtil.ApplicationRootPath.Replace("\\", "/"), HighLogic.SaveFolder);
 
-        internal static Boolean BackupSaves()
+		internal static Boolean BackupSaves()
         {
             if (!KerbalAlarmClock.settings.BackupSaves)
             {
@@ -150,81 +150,6 @@ namespace KerbalAlarmClock
             strReturn = strReturn.Replace("\\t", "\t");
             return strReturn;
         }
-
-        //public static Byte[] LoadFileToArray(String Filename)
-        //{
-        //    Byte[] arrBytes;
-
-        //    arrBytes = KSP.IO.File.ReadAllBytes<KerbalAlarmClock>(Filename);
-
-        //    return arrBytes;
-        //}
-
-        //public static void SaveFileFromArray(Byte[] data, String Filename)
-        //{
-        //    KSP.IO.File.WriteAllBytes<KerbalAlarmClock>(data, Filename);
-        //}
-
-
-        //public static void LoadImageIntoTexture(ref Texture2D tex, String FileName)
-        //{
-
-        //    try
-        //    {
-        //        //Log.dbg("Loading: TriggerTech/Textures/KerbalAlarmClock/{0}", FileName);
-        //        //tex = GameDatabase.Instance.GetTexture("TriggerTech/Textures/KerbalAlarmClock/" + FileName.Replace(".png", ""), false);
-        //        //if (tex == null) KACWorker.DebugLogFormat GetTextureted("Textures Empty");
-
-        //        tex.LoadImage(LoadFileToArray(FileName));
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Log.dbg("Failed to load (are you missing a file):{0}", FileName);
-        //    }
-        //}
-
-        //stop using unity www object as some clients get timeouts searching via the url address
-
-        //public static void LoadImageIntoTexture(ref Texture2D tex, String FileName)
-        //{
-        //    WWW img1 = new WWW(String.Format("file://{0}Icons/{1}", PlugInPath, FileName));
-        //    img1.LoadImageIntoTexture(tex);
-        //}
-
-        //public static void LoadImageIntoTexture(ref Texture2D tex, String FolderName, String FileName)
-        //{
-        //    WWW img1 = new WWW(String.Format("file://{0}{1}/{2}", PlugInPath, FolderName,FileName));
-        //    img1.LoadImageIntoTexture(tex);
-        //}
-
-        /// <summary>
-        /// Loads texture from GameDatabase
-        /// If texture is a TGA then its quality is affected by the game settings
-        /// If texture is a PNG then its quality is affetced by texture compression in game
-        /// </summary>
-        /// <param name="tex"></param>
-        /// <param name="FileName"></param>
-        /// <param name="FolderPath"></param>
-        /// <returns></returns>
-        //public static Boolean LoadImageFromGameDB(ref Texture2D tex, String FileName, String FolderPath = "")
-        //{
-        //    //DebugLogFormatted("{0},{1}",FileName, FolderPath);
-        //    Boolean blnReturn = false;
-        //    try
-        //    {
-        //        if (FileName.ToLower().EndsWith(".png")) FileName = FileName.Substring(0, FileName.Length - 4);
-        //        if (FileName.ToLower().EndsWith(".tga")) FileName = FileName.Substring(0, FileName.Length - 4);
-        //        if (FolderPath == "") FolderPath = DBPathTextures;
-        //        Log.dbg("Loading {0}", String.Format("{0}/{1}", FolderPath, FileName));
-        //        tex = GameDatabase.Instance.GetTexture(String.Format("{0}/{1}", FolderPath, FileName), false);
-        //        blnReturn = true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Log.dbg("Failed to load (are you missing a file):{0}/{1}", String.Format("{0}/{1}", FolderPath, FileName));
-        //    }
-        //    return blnReturn;
-        //}
 
         /// <summary>
         /// Loads a texture from the file system directly
