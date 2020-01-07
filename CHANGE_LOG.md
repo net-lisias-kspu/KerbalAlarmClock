@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-1212: 3.8.3.0 (TriggerAU) for KSP 1.2
+	+ Fixed stupd typo with scrollview and add transfer (Issue #183)
+	+ `KSP Version: 1.2.2`
 * 2016-1210: 3.8.2.0 (TriggerAU) for KSP 1.2
 	+ Another Initialization issue with object line renderer - Thanks JPL
 	+ Fixed NRE re timewarp in editor and other guard statement - Thanks JPL
