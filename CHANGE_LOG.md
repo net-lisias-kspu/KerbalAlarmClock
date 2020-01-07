@@ -1,5 +1,15 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.6.1.0 (TriggerAU) for KSP 0.22
+	+ Recompiled it for 0.22
+	+ Added Crew Alarms (track Kerbal rather than Vessel)
+	+ Added Distance Target Alarms \* distance from target vessel or altitude above planet
+	+ Added Launch Rendezvous Alarm (under Ascending/Descending Node for Landed craft) \* MechJeb2 code \* thanks r4m0n
+	+ Allow restoration of Nodes that you have passed (useful for interplanetary burns)
+	+ Added missing Dres Transfer Model data \* thanks Voneiden
+	+ Added view only version of Alarm clock to both Space Center and Tracking Station
+	+ Added options to hide/move the icon for all three visible scenes
+	+ `KSP Version: 0.22`
 * 2014-0517: 2.5.0.0 (TriggerAU) for KSP 0.21.1
 	+ Recompiled it for 0.21
 	+ Fixed some issues with Hyperbolic orbits and AN/DN Nodes
