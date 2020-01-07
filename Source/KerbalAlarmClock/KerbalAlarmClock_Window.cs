@@ -343,16 +343,16 @@ namespace KerbalAlarmClock
                             if (alarms.ActiveEnabledFutureAlarms(HighLogic.CurrentGame.Title))
                             {
                                 if (WindowVisibleByActiveScene)
-                                    TexturePath = KACUtils.PathToolbarTexturePath + "/KACIcon-AlarmShow";
+                                    TexturePath = KACResources.GetIconTexturePath(KACUtils.PathToolbarIcons, "KACIcon-AlarmShow");
                                 else
-                                    TexturePath = KACUtils.PathToolbarTexturePath + "/KACIcon-Alarm";
+                                    TexturePath = KACResources.GetIconTexturePath(KACUtils.PathToolbarIcons, "KACIcon-Alarm");
                             }
                             else
                             {
                                 if (WindowVisibleByActiveScene)
-                                    TexturePath = KACUtils.PathToolbarTexturePath + "/KACIcon-NormShow";
+                                    TexturePath = KACResources.GetIconTexturePath(KACUtils.PathToolbarIcons, "KACIcon-NormShow");
                                 else
-                                    TexturePath = KACUtils.PathToolbarTexturePath + "/KACIcon-Norm";
+                                    TexturePath = KACResources.GetIconTexturePath(KACUtils.PathToolbarIcons, "KACIcon-Norm");
                             }
                         }
 

@@ -3,32 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using KSPPluginFramework;
+
+using Asset = KSPe.IO.Asset<KerbalAlarmClock.KerbalAlarmClock>;
 
 namespace KerbalAlarmClock
 {
     internal static class KACUtils
     {
-        //public static String AppPath = KSPUtil.ApplicationRootPath.Replace("\\", "/");
-        //public static String PlugInPath = AppPath + "PluginData/KerbalAlarmClock/";
-        internal static String PathApp = KSPUtil.ApplicationRootPath.Replace("\\", "/");
-        internal static String PathTriggerTech = string.Format("{0}GameData/TriggerTech", PathApp);
+		internal const string PathData = "Data";
+		internal const string PathTextures = "Textures";
+		internal const string PathToolbarIcons = "ToolbarIcons";
+		internal const string PathSounds = "Sounds";
 
-        internal static String PathPlugin = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        internal static String PathPluginData = string.Format("{0}/PluginData/Data", PathPlugin);
-        internal static String PathTextures = string.Format("{0}/PluginData/Textures", PathPlugin);
-        internal static String PathToolbarIcons = string.Format("{0}/ToolbarIcons", PathPlugin);
-        internal static String PathPluginSounds = string.Format("{0}/Sounds", PathPlugin);
-
-        internal static String DBPathTriggerTech = string.Format("TriggerTech");
-        internal static String DBPathPlugin = string.Format("TriggerTech/{0}", KerbalAlarmClock._AssemblyName);
-        //internal static String DBPathToolbarIcons = string.Format("{0}/ToolbarIcons", DBPathPlugin);
-        //internal static String DBPathTextures = string.Format("{0}/Textures", DBPathPlugin);
-        internal static String DBPathPluginSounds = string.Format("{0}/Sounds", DBPathPlugin);
-
-        internal static String PathToolbarTexturePath = PathToolbarIcons.Replace("\\", "/").Substring(PathToolbarIcons.Replace("\\", "/").ToLower().IndexOf("/gamedata/") + 10);
-
-        internal static String SavePath;
+		// TODO: Get rid of this stunt. Try to use S.A.V.E. as a library?
+		private static readonly string SavePath = string.Format("{0}saves/{1}", KSPUtil.ApplicationRootPath.Replace("\\", "/"), HighLogic.SaveFolder);
 
         internal static Boolean BackupSaves()
         {
@@ -245,40 +233,17 @@ namespace KerbalAlarmClock
         /// <param name="FileName">Image file name</param>
         /// <param name="FolderPath">Optional folder path of image</param>
         /// <returns></returns>
-        public static Boolean LoadImageFromFile(ref Texture2D tex, String FileName, String FolderPath = "")
+        public static Boolean LoadImageFromFile(ref Texture2D tex, String FileName, String FolderPath)
         {
-            //DebugLogFormatted("{0},{1}",FileName, FolderPath);
-            Boolean blnReturn = false;
-            try
-            {
-                if (FolderPath == "") FolderPath = PathTextures;
-
-                //File Exists check
-                if (System.IO.File.Exists(String.Format("{0}/{1}", FolderPath, FileName)))
-                {
-                    try
-                    {
-                        //Log.dbg("Loading: {0}", String.Format("{0}/{1}", FolderPath, FileName));
-                        tex.LoadImage(System.IO.File.ReadAllBytes(String.Format("{0}/{1}", FolderPath, FileName)));
-                        blnReturn = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.dbg("Failed to load the texture:{0} ({1})", String.Format("{0}/{1}", FolderPath, FileName), ex.Message);
-                    }
-                }
-                else
-                {
-                    Log.dbg("Cannot find texture to load:{0}", String.Format("{0}/{1}", FolderPath, FileName));
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                Log.dbg("Failed to load (are you missing a file):{0} ({1})", String.Format("{0}/{1}", FolderPath, FileName), ex.Message);
-            }
-            return blnReturn;
+			try
+			{
+				tex = Asset.Texture2D.LoadFromFile(FolderPath, FileName);
+				return true;
+			} catch (Exception e)
+			{
+				Log.error(e, "While loading image {0}/{1}", FolderPath, FileName);
+				return false;
+			}
         }
 
         #region "offset building"

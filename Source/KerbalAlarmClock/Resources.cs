@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using System.IO;
-
 using UnityEngine;
-using KSPPluginFramework;
+
+using AssetFile = KSPe.IO.File<KerbalAlarmClock.KerbalAlarmClock>.Asset;
+using GameDB = KSPe.GameDB.Asset<KerbalAlarmClock.KerbalAlarmClock>;
 
 namespace KerbalAlarmClock
 {
@@ -200,105 +200,105 @@ namespace KerbalAlarmClock
                 KACUtils.LoadImageFromFile(ref toolbariconPauseEffect000, "KACIconBig-PauseEffect_000.png", KACUtils.PathToolbarIcons);
 
 
-                KACUtils.LoadImageFromFile(ref iconRaw, "img_listiconRaw.png");
-                KACUtils.LoadImageFromFile(ref iconSOI, "img_listiconSOI.png");
-                KACUtils.LoadImageFromFile(ref iconMNode, "img_listiconMNode.png");
-                KACUtils.LoadImageFromFile(ref iconAp, "img_listiconAp.png");
-                KACUtils.LoadImageFromFile(ref iconPe, "img_listiconPe.png");
-                KACUtils.LoadImageFromFile(ref iconAN, "img_listiconAN.png");
-                KACUtils.LoadImageFromFile(ref iconDN, "img_listiconDN.png");
-                KACUtils.LoadImageFromFile(ref iconXFer, "img_listiconXfer.png");
-                KACUtils.LoadImageFromFile(ref iconClosest, "img_listiconClosest.png");
-                KACUtils.LoadImageFromFile(ref iconCrew, "img_listiconCrew.png");
-                KACUtils.LoadImageFromFile(ref iconContract, "img_listiconContract.png");
-                KACUtils.LoadImageFromFile(ref iconScienceLab, "img_listiconScienceLab.png");
-                KACUtils.LoadImageFromFile(ref iconEarth, "img_listiconEarth.png");
-                KACUtils.LoadImageFromFile(ref iconLaunchRendezvous, "img_listiconLaunchRendezvous.png");
-                KACUtils.LoadImageFromFile(ref iconWarpList100, "img_listiconWarpList_100.png");
-                KACUtils.LoadImageFromFile(ref iconWarpList080, "img_listiconWarpList_080.png");
-                KACUtils.LoadImageFromFile(ref iconWarpList060, "img_listiconWarpList_060.png");
-                KACUtils.LoadImageFromFile(ref iconWarpList040, "img_listiconWarpList_040.png");
-                KACUtils.LoadImageFromFile(ref iconWarpList020, "img_listiconWarpList_020.png");
-                KACUtils.LoadImageFromFile(ref iconWarpList000, "img_listiconWarpList_000.png");
+                KACUtils.LoadImageFromFile(ref iconRaw, "img_listiconRaw.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconSOI, "img_listiconSOI.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconMNode, "img_listiconMNode.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconAp, "img_listiconAp.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconPe, "img_listiconPe.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconAN, "img_listiconAN.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconDN, "img_listiconDN.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconXFer, "img_listiconXfer.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconClosest, "img_listiconClosest.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconCrew, "img_listiconCrew.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconContract, "img_listiconContract.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconScienceLab, "img_listiconScienceLab.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconEarth, "img_listiconEarth.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconLaunchRendezvous, "img_listiconLaunchRendezvous.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpList100, "img_listiconWarpList_100.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpList080, "img_listiconWarpList_080.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpList060, "img_listiconWarpList_060.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpList040, "img_listiconWarpList_040.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpList020, "img_listiconWarpList_020.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpList000, "img_listiconWarpList_000.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref iconPauseList100, "img_listiconPauseList_100.png");
-                KACUtils.LoadImageFromFile(ref iconPauseList080, "img_listiconPauseList_080.png");
-                KACUtils.LoadImageFromFile(ref iconPauseList060, "img_listiconPauseList_060.png");
-                KACUtils.LoadImageFromFile(ref iconPauseList040, "img_listiconPauseList_040.png");
-                KACUtils.LoadImageFromFile(ref iconPauseList020, "img_listiconPauseList_020.png");
-                KACUtils.LoadImageFromFile(ref iconPauseList000, "img_listiconPauseList_000.png");
+                KACUtils.LoadImageFromFile(ref iconPauseList100, "img_listiconPauseList_100.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconPauseList080, "img_listiconPauseList_080.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconPauseList060, "img_listiconPauseList_060.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconPauseList040, "img_listiconPauseList_040.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconPauseList020, "img_listiconPauseList_020.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconPauseList000, "img_listiconPauseList_000.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref iconNone, "img_listiconNone.png");
-                KACUtils.LoadImageFromFile(ref iconEdit, "img_listiconEdit.png");
+                KACUtils.LoadImageFromFile(ref iconNone, "img_listiconNone.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconEdit, "img_listiconEdit.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref iconWarpToApPe, "img_buttonWarpToApPe.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToApPeOver, "img_buttonWarpToApPeOver.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToManNode, "img_buttonWarpToManNode.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToManNodeOver, "img_buttonWarpToManNodeOver.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToANDN, "img_buttonWarpToANDN.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToANDNOver, "img_buttonWarpToANDNOver.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToTSApPe, "img_buttonWarpToTSApPe.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToTSApPeOver, "img_buttonWarpToTSApPeOver.png");
-                //KACUtils.LoadImageFromFile(ref iconWarpToTSApPeOverConfirm, "img_buttonWarpToTSApPeOverConfirm.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToTSManNode, "img_buttonWarpToTSManNode.png");
-                KACUtils.LoadImageFromFile(ref iconWarpToTSManNodeOver, "img_buttonWarpToTSManNodeOver.png");
+                KACUtils.LoadImageFromFile(ref iconWarpToApPe, "img_buttonWarpToApPe.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToApPeOver, "img_buttonWarpToApPeOver.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToManNode, "img_buttonWarpToManNode.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToManNodeOver, "img_buttonWarpToManNodeOver.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToANDN, "img_buttonWarpToANDN.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToANDNOver, "img_buttonWarpToANDNOver.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToTSApPe, "img_buttonWarpToTSApPe.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToTSApPeOver, "img_buttonWarpToTSApPeOver.png", KACUtils.PathTextures);
+				//KACUtils.LoadImageFromFile(ref iconWarpToTSApPeOverConfirm, "img_buttonWarpToTSApPeOverConfirm.png", KACUtils.PathTextures);
+				KACUtils.LoadImageFromFile(ref iconWarpToTSManNode, "img_buttonWarpToTSManNode.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref iconWarpToTSManNodeOver, "img_buttonWarpToTSManNodeOver.png", KACUtils.PathTextures);
 
                 //KACUtils.LoadImageFromFile(ref iconstatusSOI, "img_statusiconSOI.png");
 
-                KACUtils.LoadImageFromFile(ref btnRaw, "img_buttonTypeRaw.png");
-                KACUtils.LoadImageFromFile(ref btnMNode, "img_buttonTypeMNode.png");
-                KACUtils.LoadImageFromFile(ref btnAp, "img_buttonTypeAp.png");
-                KACUtils.LoadImageFromFile(ref btnPe, "img_buttonTypePe.png");
-                KACUtils.LoadImageFromFile(ref btnApPe, "img_buttonTypeApPe.png");
-                KACUtils.LoadImageFromFile(ref btnAN, "img_buttonTypeAN.png");
-                KACUtils.LoadImageFromFile(ref btnDN, "img_buttonTypeDN.png");
-                KACUtils.LoadImageFromFile(ref btnANDN, "img_buttonTypeANDN.png");
-                KACUtils.LoadImageFromFile(ref btnSOI, "img_buttonTypeSOI.png");
-                KACUtils.LoadImageFromFile(ref btnXfer, "img_buttonTypeXfer.png");
-                KACUtils.LoadImageFromFile(ref btnClosest, "img_buttonTypeClosest.png");
-                KACUtils.LoadImageFromFile(ref btnCrew, "img_buttonTypeCrew.png");
-                KACUtils.LoadImageFromFile(ref btnContract, "img_buttonTypeContract.png");
-                KACUtils.LoadImageFromFile(ref btnScienceLab, "img_buttonTypeScienceLab.png");
+                KACUtils.LoadImageFromFile(ref btnRaw, "img_buttonTypeRaw.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnMNode, "img_buttonTypeMNode.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnAp, "img_buttonTypeAp.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnPe, "img_buttonTypePe.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnApPe, "img_buttonTypeApPe.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnAN, "img_buttonTypeAN.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnDN, "img_buttonTypeDN.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnANDN, "img_buttonTypeANDN.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnSOI, "img_buttonTypeSOI.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnXfer, "img_buttonTypeXfer.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnClosest, "img_buttonTypeClosest.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnCrew, "img_buttonTypeCrew.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnContract, "img_buttonTypeContract.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnScienceLab, "img_buttonTypeScienceLab.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnChevronUp, "img_buttonChevronUp.png");
-                KACUtils.LoadImageFromFile(ref btnChevronDown, "img_buttonChevronDown.png");
-                KACUtils.LoadImageFromFile(ref btnChevLeft, "img_buttonChevronLeft.png");
-                KACUtils.LoadImageFromFile(ref btnChevRight, "img_buttonChevronRight.png");
+                KACUtils.LoadImageFromFile(ref btnChevronUp, "img_buttonChevronUp.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnChevronDown, "img_buttonChevronDown.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnChevLeft, "img_buttonChevronLeft.png", KACUtils.PathTextures);
+				KACUtils.LoadImageFromFile(ref btnChevRight, "img_buttonChevronRight.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnRedCross, "img_buttonRedCross.png");
-                KACUtils.LoadImageFromFile(ref btnSettings, "img_buttonSettings.png");
-                KACUtils.LoadImageFromFile(ref btnSettingsAttention, "img_buttonSettingsAttention.png");
-                KACUtils.LoadImageFromFile(ref btnAdd, "img_buttonAdd.png");
+				KACUtils.LoadImageFromFile(ref btnRedCross, "img_buttonRedCross.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnSettings, "img_buttonSettings.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnSettingsAttention, "img_buttonSettingsAttention.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnAdd, "img_buttonAdd.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnRocket, "img_buttonRocket.png");
+                KACUtils.LoadImageFromFile(ref btnRocket, "img_buttonRocket.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnCalendar, "img_buttonCalendar.png");
+                KACUtils.LoadImageFromFile(ref btnCalendar, "img_buttonCalendar.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnActionNothing, "img_buttonActionNothing.png");
-                KACUtils.LoadImageFromFile(ref btnActionWarp, "img_buttonActionWarp.png");
-                KACUtils.LoadImageFromFile(ref btnActionPause, "img_buttonActionPause.png");
-                KACUtils.LoadImageFromFile(ref btnActionNoMsg, "img_buttonActionNoMsg.png");
-                KACUtils.LoadImageFromFile(ref btnActionMsg, "img_buttonActionMsg.png");
-                KACUtils.LoadImageFromFile(ref btnActionMsgVessel, "img_buttonActionMsgVessel.png");
-                KACUtils.LoadImageFromFile(ref btnActionSound, "img_buttonActionSound.png");
-                KACUtils.LoadImageFromFile(ref btnActionDelete, "img_buttonActionDelete.png");
+                KACUtils.LoadImageFromFile(ref btnActionNothing, "img_buttonActionNothing.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionWarp, "img_buttonActionWarp.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionPause, "img_buttonActionPause.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionNoMsg, "img_buttonActionNoMsg.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionMsg, "img_buttonActionMsg.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionMsgVessel, "img_buttonActionMsgVessel.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionSound, "img_buttonActionSound.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionDelete, "img_buttonActionDelete.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnActionWarpMsg, "img_buttonActionWarpMsg.png");
-                KACUtils.LoadImageFromFile(ref btnActionNothingAndDelete, "img_buttonActionNothingAndDelete.png");
+                KACUtils.LoadImageFromFile(ref btnActionWarpMsg, "img_buttonActionWarpMsg.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnActionNothingAndDelete, "img_buttonActionNothingAndDelete.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref btnDropDown, "img_DropDown.png");
-                KACUtils.LoadImageFromFile(ref btnPlay, "img_Play.png");
-                KACUtils.LoadImageFromFile(ref btnStop, "img_Stop.png");
+                KACUtils.LoadImageFromFile(ref btnDropDown, "img_DropDown.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnPlay, "img_Play.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref btnStop, "img_Stop.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref curResizeWidth, "cur_ResizeWidth.png");
-                KACUtils.LoadImageFromFile(ref curResizeHeight, "cur_ResizeHeight.png");
-                KACUtils.LoadImageFromFile(ref curResizeBoth, "cur_ResizeBoth.png");
+                KACUtils.LoadImageFromFile(ref curResizeWidth, "cur_ResizeWidth.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref curResizeHeight, "cur_ResizeHeight.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref curResizeBoth, "cur_ResizeBoth.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref texBox, "tex_Box.png");
-                KACUtils.LoadImageFromFile(ref texBoxUnity, "tex_BoxUnity.png");
+                KACUtils.LoadImageFromFile(ref texBox, "tex_Box.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref texBoxUnity, "tex_BoxUnity.png", KACUtils.PathTextures);
 
-                KACUtils.LoadImageFromFile(ref texSeparatorH, "img_SeparatorHorizontal.png");
-                KACUtils.LoadImageFromFile(ref texSeparatorV, "img_SeparatorVertical.png");
+                KACUtils.LoadImageFromFile(ref texSeparatorH, "img_SeparatorHorizontal.png", KACUtils.PathTextures);
+                KACUtils.LoadImageFromFile(ref texSeparatorV, "img_SeparatorVertical.png", KACUtils.PathTextures);
 
 
                 //KACUtils.LoadImageFromFile(ref txtRedTint, "Textures", "RedOverlay.png");
@@ -400,9 +400,14 @@ namespace KerbalAlarmClock
             return textureReturn;
         }
 
-        internal static String GetWarpIconTexturePath()
+		internal static String GetIconTexturePath(string folder, string name)
+		{
+			return AssetFile.Solve(folder, name);
+		}
+
+		internal static String GetWarpIconTexturePath()
         {
-            String textureReturn = KACUtils.PathToolbarTexturePath + "/KACIcon-WarpEffect2_";
+            String textureReturn = GetIconTexturePath(KACUtils.PathToolbarIcons, "KACIcon-WarpEffect2_");
 
             textureReturn = GetIconPercentageFromTime(textureReturn);
             return textureReturn;
@@ -410,7 +415,7 @@ namespace KerbalAlarmClock
 
         internal static String GetPauseIconTexturePath()
         {
-            String textureReturn = KACUtils.PathToolbarTexturePath + "/KACIcon-PauseEffect_";
+            String textureReturn = GetIconTexturePath(KACUtils.PathToolbarIcons, "KACIcon-PauseEffect_");
 
             textureReturn = GetIconPercentageFromTime(textureReturn);
             return textureReturn;
@@ -1216,8 +1221,7 @@ namespace KerbalAlarmClock
                 lstXferModelPoints = new List<KACXFerModelPoint>();
 
                 //read in the data file
-                //String strData = KSP.IO.File.ReadAllText<KerbalAlarmClock>("data_TransferModelData.csv");
-                String strData = System.IO.File.ReadAllText(KACUtils.PathPluginData + "/data_TransferModelData.csv");
+                String strData = AssetFile.ReadAllText(KACUtils.PathData, "data_TransferModelData.csv");
                 //split to lines
                 String[] strLines = strData.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 String[] strFields;

@@ -96,9 +96,6 @@ namespace KerbalAlarmClock
 			//        = new KACWorker(this);
 			//        break;
 			//}
-			////Set the saves path
-			KACUtils.SavePath=string.Format("{0}saves/{1}",KACUtils.PathApp,HighLogic.SaveFolder);
-
 		}
 
 		//Awake Event - when the DLL is loaded
