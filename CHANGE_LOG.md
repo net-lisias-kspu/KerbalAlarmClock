@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1016: 3.0.0.5-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
+	+ Added new default timewarp control so it uses non-instant transitions - helps with really high warp rates
+	+ Added some extra API stuff for Transfer Window Planner
+	+ Webesite is also ready - http://triggerau.github.io/KerbalAlarmClock/
 * 2014-0930: 3.0.0.4-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
 	+ Now includes an importer for v2 Alarm files and some fixes to control lock code
 	+ you'll also find instructions on the web site for install/import shortly and others shortly
