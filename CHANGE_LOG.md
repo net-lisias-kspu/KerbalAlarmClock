@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2017-0530: 3.8.5.0 (TriggerAU) for KSP 1.3
+	+ Recompiled for 1.3.0 (Issue #191)
+	+ Merged in configurable tooltip period (Issue #190)
+	+ Added Purge stuff for meta files (Issue #189)
+```
 * 2017-0115: 3.8.4.0 (TriggerAU) for KSP 1.2.2
 	+ Fixed bug in HideWhenPaused logic - (Issue #184)
 	+ Hide the KAC when in the SpaceCenter overlay scenes Issue #186)
