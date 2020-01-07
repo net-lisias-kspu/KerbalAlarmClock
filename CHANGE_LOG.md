@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.5.0.0 (TriggerAU) for KSP 0.21.1
+	+ Recompiled it for 0.21
+	+ Fixed some issues with Hyperbolic orbits and AN/DN Nodes
+	+ `KSP Version: 0.21.1`
 * 2014-0517: 2.4.0.2 (TriggerAU) for KSP 0.20.2
 	+ Fixed stupid mistake AN/DN GUI Code
 	+ `KSP Version: 0.20.2`
