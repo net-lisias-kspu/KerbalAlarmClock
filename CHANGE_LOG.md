@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.4.1.0 (TriggerAU) for KSP 0.20
+	+ Recompile and minor changes to package structure to facilitate 0.20 Legacy Mode
+	+ `KSP Version: 0.20`
 * 2014-0517: 1.4.0.3 (TriggerAU) for KSP 0.19.1
 	+ Minor changes to facilitate Linux paths and case sensitivity
 	+ `KSP Version: 0.19.1`
