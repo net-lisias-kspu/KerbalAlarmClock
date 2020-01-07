@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2017-0115: 3.8.4.0 (TriggerAU) for KSP 1.2.2
+	+ Fixed bug in HideWhenPaused logic - (Issue #184)
+	+ Hide the KAC when in the SpaceCenter overlay scenes Issue #186)
+	+ No longer create duplicate mannodes from alarm windows
+	+ `KSP Version: 1.2.2`
 * 2016-1212: 3.8.3.0 (TriggerAU) for KSP 1.2
 	+ Fixed stupd typo with scrollview and add transfer (Issue #183)
 	+ `KSP Version: 1.2.2`
