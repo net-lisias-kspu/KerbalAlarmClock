@@ -1,5 +1,11 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-1028: 3.8.1.0 (TriggerAU) for KSP 1.2
+	+ Fixed Initialization issue with object line renderer
+	+ Fixed SetVessel working in TS
+	+ Fixed crash occuring when switching in flight to unloaded vessel
+	+ fixed warp reduction not cancelling autowarp
+	+ `KSP Version: 1.2.0`
 * 2016-1012: 3.8.0.0 (TriggerAU) for KSP 1.2
 	+ Code changes and recompile for 1.2 - Thanks Nightingale and JPLRepo
 	+ Added ScienceLab Alarms - Thanks natsnudasoft
