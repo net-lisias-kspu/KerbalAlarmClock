@@ -1,5 +1,16 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.4.0.2 (TriggerAU) for KSP 0.19.1
+	+ Changed resource loading method to use direct file access \* prevents some peoples issues with timeouts
+	+ Added new Add Alarm window format \* big change...
+	+ Added new alarm types \* Apoapsis, Periapsis, Ascending Node, Descending Node \* thanks to Cybutek for use of his AN/DN calc functions from the Kerbal Engineer
+	+ These alarms can be set to adjust if the flightplan changes
+	+ Added a 2nd form of transfer calculation for transfers between bodies orbiting Kerbol \* this uses voneiden'd excellent modelled data
+	+ Ability to disconnect alarm from ships (and see this)
+	+ Added another time format \* hh:MM:ss \* can toggle between them
+	+ Added extra links to about tab
+	+ And all the things I could remmeber from forum posts/PM's before the great crash :P
+	+ `KSP Version: 0.19.1`
 * 2014-0517: 1.3.5.1 (TriggerAU) for KSP 0.19.1
 	+ New Documentation Site link
 	+ Tidied up a minor GUI layout or two
