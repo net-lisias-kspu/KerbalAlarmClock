@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.4.0.2 (TriggerAU) for KSP 0.20.2
+	+ Fixed stupid mistake AN/DN GUI Code
+	+ `KSP Version: 0.20.2`
 * 2014-0517: 2.4.0.1 (TriggerAU) for KSP 0.20.2
 	+ Changed AN/DN code to use Mechjeb style ones to correct for my lack of math skills
 	+ Changed AN/DN Add so if there is no target it displays the equatorial AN/DN times
