@@ -1,5 +1,13 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-0119: 3.2.3.0 (TriggerAU) for KSP 0.90
+	+ Changed WarpTo buttons to only respond to left-click (Issue #112)
+	+ Added Confirmation option to WarpTo Buttons (Issue #111)
+	+ Fixed bug in Launch Rendezvous code for non Equatorial landing positions (Issue #110)
+	+ Added Filter to this Vessel option for alarms list (Issue #108)
+	+ Added Date of Alarm to editing window (Issue #107)
+	+ Added option to display child windows below main window, not just to the side (Issue #106)
+	+ `KSP Version: 0.90`
 * 2015-0111: 3.2.2.0 (TriggerAU) for KSP 0.90
 	+ Changed fix for Contracts going missing to use a gameevent (Issue #92 again)
 	+ Changed orbit render stuff in TS so it is more specific (Issue #104)
