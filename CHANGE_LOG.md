@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-0624: 3.7.1.0 (TriggerAU) for KSP 1.1
+	+ Fixed issue with location of ToolbarIcon folder - my bad
+	+ Fixed NRE when PauseMenu is not yet available to query (Issue #164)
+	+ `KSP Version: 1.1.3`
 * 2016-0623: 3.7.0.0 (TriggerAU) for KSP 1.1
 	+ Recompiled to resolve isses with TimeWarp methods (Issue #169)
 	+ Moved Add All Transfers button to top of list (Issue #163)
