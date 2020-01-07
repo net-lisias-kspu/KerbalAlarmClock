@@ -1,5 +1,33 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1026: 3.0.1.0 (TriggerAU) for KSP 0.25.0
+	+ Rework of majority of code base
+	+ Ability to choose from 3 visual Skins
+	+ Added Contract Alarms for Expiry and Deadlines
+	+ Added Alarm Repeats for Raw, Crew and Model Transfer alarms
+	+ QuickAdd option for contextual Alarms
+	+ QuickAdd and Warp option
+	+ Added Kill Warp with No Message action and restructured buttons/code behind
+	+ Alarm Saving - now in the games save file - only saves and loads on game/save and load
+	+ Adjusted settings tabs to better layout options
+	+ API for Alarm Creation/Modification and events
+	+ App Launcher integration - this is now the default
+	+ Has input locking options for when mouse is over the panels - this prevents action groups from occuring when mouse is over windows
+	+ Changed default Warp affecting to cater to non-instant transitions
+	+ New Common Toolbar Wrapper - official one
+	+ Removed periodic save of alarms file now that alarms are in the save files
+	+ Screen clamping on main window
+	+ Sorted the multiline alarm display stuff
+	+ Window Resizing for better display
+	+ Font changes to make more readable
+	+ F11 keystroke disabled - can be reenabled via settings value
+	+ Restructure settings
+	+ Restructure plugin folders
+	+ Added Alarm Import Tool for v2 Alarms
+	+ Added Flags
+	+ New documentation site - http://triggerau.github.io/KerbalAlarmClock/
+	+ New versioncheck location on Github
+	+ `KSP Version: 0.25.0`
 * 2014-1023: 3.0.0.9-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
 	+ Added options to cater to contract margins for auto alarms
 	+ Fixed NREs getting thown at Pause menu
