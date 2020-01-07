@@ -1,5 +1,12 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2015-1202: 3.5.0.0 (TriggerAU) for KSP 1.0.5
+	+ Fixed issue with dropdown pages and alignment
+	+ Fixed issue with settings bleed (Issue #152)
+	+ Solved limit on Target Distance Alamrs - for solar orbits (Issue #151)
+	+ Updated KERWrapper to better handle the KER window not being open (Issue #150)
+	+ Added AngleRenderer for ejection angle displays of TWP Alarms
+	+ `KSP Version: 1.0.5`
 * 2015-0627: 3.4.0.0 (TriggerAU) for KSP 1.0.4
 	+ Added Audio to Alarms - ie play a sound when an alarm fires (Issue #4)
 	+ Added repeat option to Ap/PE alarms (Issue #128)
