@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2016-0523: 3.6.3.0 (TriggerAU) for KSP 1.1
+	+ Adjusted code to handle UIToggle and flight Pause menu
+	+ `KSP Version: 1.1.2`
 * 2016-0515: 3.6.2.1 (TriggerAU) for KSP 1.1
 	+ Fixed issue in TimeObjects for PhaseAngle display
 	+ `KSP Version: 1.1.2`
