@@ -43,6 +43,11 @@ The following file layout must be present after installation:
 				README.md
 				KerbalAlarmClock.dll
 				KerbalAlarmClock.version
+		[__LOCAL]
+			[TriggerTech]
+				[KerbalAlarmClock]
+					[Sounds]
+						...
 		000_KSPe.dll
 		ModuleManager.dll
 		...
@@ -58,6 +63,7 @@ The following file layout must be present after installation:
 
 Please note that the `PluginData` hierarchy can be present only after running the installed plugin by the first time.
 
+The `__LOCAL` stunt is for you add your custom sounds (in any format supported by Unity), so you can delete and reinstall the Add'On without worrying deleting your customizatinos.
 
 ### Dependencies
 
