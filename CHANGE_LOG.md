@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.7.3.0 (TriggerAU) for KSP 0.23.5
+	+ Fixed the pesky bug with the auto alarm periods not saving
+	+ `KSP Version: 0.23.5`
 * 2014-0517: 2.7.2.0 (TriggerAU) for KSP 0.23.5
 	+ Adding Warp halting code to TS and SC
 	+ Added extra code for guiload when texture loads fail
