@@ -1,5 +1,8 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 1.3.3.0 (TriggerAU) for KSP 0.19.1
+	+ Tweaked Orbital Transfer lists
+	+ `KSP Version: 0.19.1`
 * 2014-0517: 1.3.0.0 (TriggerAU) for KSP 0.18.4
 	+ Added storing and retreiving the maneuver node tied to an alarm
 	+ Added ability to jump to the ship that the alarm was created on
