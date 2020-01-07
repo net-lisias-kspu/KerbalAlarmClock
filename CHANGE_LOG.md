@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0517: 2.7.1.0 (TriggerAU) for KSP 0.23.5
+	+ 0.23.5 Recompile for new version of Unity/KSP
+	+ Added functionality to detect time display type and match KAC times accordingly
+	+ `KSP Version: 0.23.5`
 * 2014-0517: 2.7.0.0 (TriggerAU) for KSP 0.23
 	+ 0.23 Recompile for new version of Unity
 	+ Added Option to choose to use Blizzy's excellent toolbar \* uses latebinding so no need to include DLL and no hard reference
