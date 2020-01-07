@@ -1,5 +1,12 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1218: 3.0.6.0 (TriggerAU) for KSP 0.90
+	+ Recompiled for 0.90
+	+ Couple of code changes for 0.90 changes
+	+ Added Delete Confirmation optional Dialog (Issue #82)
+	+ Adjusted Top Clamp value to be off screen slightly (Issue #79)
+	+ Changed KACBackup savenames to start with z so they go to the bottom of the list
+	+ `KSP Version: 0.90`
 * 2014-1119: 3.0.5.0 (TriggerAU) for KSP 0.25.0
 	+ Added extra warp rate calcs for non standard values (Issue #71)
 	+ Added slider to configure weighting of transition periods
