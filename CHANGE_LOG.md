@@ -1,5 +1,10 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1010: 2.7.9.0 (TriggerAU) for KSP 0.25
+	+ Recompiled for 0.25
+	+ Image size optimisation thanks to dak180
+	+ removal of last spaceport remains
+	+ `KSP Version: 0.25.0`
 * 2014-0728: 2.7.8.2 (TriggerAU) for KSP 0.24.2
 	+ Fixed issue with inputlocks not coming off sometimes (Fixes #48)
 	+ `KSP Version: 0.24.2`
