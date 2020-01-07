@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-0718: 2.7.7.0 (TriggerAU) for KSP 0.24.0
+	+ Compiled against 0.24 binaries
+	+ 4th attempt at texture blurring (Issue #33)
+	+ `KSP Version: 0.24.0`
 * 2014-0714: 2.7.6.1 (TriggerAU) for KSP 0.23.5
 	+ Reversed changed of Images to TGA \* Back to PNGs (Issue #33)
 	+ `KSP Version: 0.23.5`
