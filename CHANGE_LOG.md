@@ -1,5 +1,9 @@
 # Kerbal Alarm Clock :: Change Log
 
+* 2014-1022: 3.0.0.8-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
+	+ Fixed window persistence across scenes (Issue #65)
+	+ Fixed Spelling mistakes for maneuver (Issue #64 )
+	+ Fixed freezing times when Autoremove man nodes option on (Issue #63)
 * 2014-1021: 3.0.0.7-beta (TriggerAU) for KSP 0.24.2 PRE-RELEASE
 	+ Fixed QuickAdd Issues with AP/PE Alarms
 	+ Fixed some API issues with events causing 0'd times and v2 KAC
